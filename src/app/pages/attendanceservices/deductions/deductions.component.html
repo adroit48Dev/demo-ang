@@ -1,0 +1,35 @@
+<nb-card>
+  <nb-card-header class="accountHeader">
+    <h5>Deductions List</h5>
+    <button nbButton (click)="createDeductionsView()" class="float-right appearance-hero status-success">Create
+      Deduction</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div *ngIf="noData" class="col noData">No Data</div>
+    <div *ngIf="session" class="col noData">Session Expired</div>
+    <div class="row" *ngIf="!noData">
+      <div class="col-6" *ngFor="let item of deductionsData[0]">
+        <nb-card class="Account-card" *ngIf="item['_id']">
+          <div class="row">
+            <div class="col-5">
+              <div class="heading">Employee Name</div>
+              <div class="subHeading">PF</div>
+              <div class="subHeading">ESI</div>
+              <div class="subHeading">Insurance</div>
+              <div class="subHeading">Tax</div>
+            </div>
+            <div class="col-7">
+              <div class="heading">{{item['emp_name']}}<a (click)="updateDeductionsView(item['emp_id'])">
+                  <i class="fas fa-edit float-right"></i></a>
+              </div>
+              <div class="subHeading">Rs. {{item['pf']}}</div>
+              <div class="subHeading">Rs. {{item['esi']}}</div>
+              <div class="subHeading">Rs. {{item['insurance']}}</div>
+              <div class="subHeading">Rs. {{item['tax']}}</div>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

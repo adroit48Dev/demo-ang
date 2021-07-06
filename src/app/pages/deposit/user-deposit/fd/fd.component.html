@@ -1,0 +1,357 @@
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <form *ngIf="form" [formGroup]="fdForm">
+                    <h5 class="card-title">Open Fixed deposit</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Maturity Month</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" formControlName="year"
+                                [ngClass]="{ 'is-invalid': submitted&&f.year.errors}">
+                                <option value="" disabled selected hidden>Select Year</option>
+                                <option value="1">1 year</option>
+                                <option value="2">2 year</option>
+                                <option value="3">3 year</option>
+                                <option value="4">4 year</option>
+                                <option value="5">5 year</option>
+                            </select>
+                            <div *ngIf="submitted&&f.year.errors" class="invalid-feedback">
+                                <div>year is required</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" formControlName="smonth"
+                                [ngClass]="{ 'is-invalid': submitted&&f.smonth.errors}">
+                                <option value="" disabled selected hidden>Select month</option>
+                                <option value="1">1 month</option>
+                                <option value="2">2 month</option>
+                                <option value="3">3 month</option>
+                                <option value="4">4 month</option>
+                                <option value="5">5 month</option>
+                            </select>
+                            <div *ngIf="submitted&&f.smonth.errors" class="invalid-feedback">
+                                <div>month is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Deposit Amount</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control" placeholder="Deposit Amount"
+                                formControlName="Amount" [ngClass]="{ 'is-invalid': submitted&&f.Amount.errors}">
+                            <div *ngIf="submitted&&f.Amount.errors" class="invalid-feedback">
+                                <div>Amount is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Nominee Details</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" placeholder="Nominee Name"
+                                formControlName="Nominee_name"
+                                [ngClass]="{ 'is-invalid': submitted&&f.Nominee_name.errors}">
+                            <div *ngIf="submitted&&f.Nominee_name.errors" class="invalid-feedback">
+                                <div>Nominee name is required</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" formControlName="Nominee_type"
+                                [ngClass]="{ 'is-invalid': submitted&&f.Nominee_type.errors}">
+                                <option value="" disabled selected hidden>Relationship with Depositor</option>
+                                <option value="mother">Mother</option>
+                                <option value="father">Father</option>
+                                <option value="siblings">Siblings</option>
+                            </select>
+                            <div *ngIf="submitted&&f.Nominee_type.errors" class="invalid-feedback">
+                                <div>Nominee type is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Return Payment Details</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" (change)="selectOption($event.target.value)"
+                                formControlName="Return_pay_method"
+                                [ngClass]="{ 'is-invalid': submitted&&f.Return_pay_method.errors}">>
+                                <option value="" disabled selected hidden>Return Payment Method</option>
+                                <option value="dd">DD</option>
+                                <option value="account">Account</option>
+                            </select>
+                            <div *ngIf="submitted&&f.Return_pay_method.errors" class="invalid-feedback">
+                                <div>Return pay method is required</div>
+                            </div>
+                        </div>
+                        <div *ngIf="state" class="col-sm-4">
+                            <input class="form-control" type="text" placeholder="Enter {{selectedTransMethod}} Number"
+                                formControlName="paymentnumber"
+                                [ngClass]="{ 'is-invalid': submitted&&f.paymentnumber.errors}">
+                        </div>
+                        <div *ngIf="submitted&&f.paymentnumber.errors" class="invalid-feedback">
+                            <div>payment type is required</div>
+                        </div>
+                    </div>
+                    <!-- <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">User Details</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control">
+                                <option disabled selected hidden>Choose User Type</option>
+                                <option>Current Account Holder</option>
+                                <option>Savings Account Holder</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" placeholder="Enter User ID">
+
+                        </div>
+                    </div> -->
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">User Account Number</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control" placeholder="Enter User Account Number"
+                                formControlName="User_account_number"
+                                [ngClass]="{ 'is-invalid': submitted&&f.User_account_number.errors}">
+                            <div *ngIf="submitted&&f.User_account_number.errors" class="invalid-feedback">
+                                <div>User Account is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-info btn-fw float-right" (click)="toSchemes()">Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- schemes card -->
+                <div *ngIf="schemes" class="schemes-container">
+                    <h4 class="card-title">Schemes</h4>
+                    <hr>
+
+                    <div class="cards">
+                        <div class="card" *ngFor="let testString of schemahtml">
+                            <div class="card-body">
+                                <h5 class="card-title">{{testString[0]}}</h5>
+                                <hr style="border-color: #96f18a;">
+                                <div class="container">
+                                    <p><b>Scheme Details:</b> </p>
+
+                                    <ul>
+                                        <li>
+                                            <p>Interest Rate : {{testString[1]}} </p>
+                                        </li>
+                                        <li>
+                                            <p>Minimun Amount : {{testString[3]}} </p>
+                                        </li>
+                                        <li>
+                                            <p>Maximun Amount : {{testString[4]}} </p>
+                                        </li>
+
+                                    </ul>
+                                    <hr style="border-color: #96f18a;">
+                                    <button (click)="toPreview(testString[2])"
+                                        class="btn btn-success btn-block">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- detailed info tables -->
+                    <div *ngIf="detailedInfo" class="detailed-info mt-4">
+                        <h5 class="card-title">General Public FD Rate</h5>
+                        <div class="table-responsive" data-pattern="priority-columns">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background-color: rgb(192, 192, 192);">
+                                    <tr>
+                                        <th data-priority="1">Scheme Name</th>
+                                        <th data-priority="2">Interest</th>
+                                        <th data-priority="3">Deposit Amount</th>
+                                        <th data-priority="4">Tenure</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Monthly Scheme</td>
+                                        <td>2.00%</td>
+                                        <td>12000.00</td>
+                                        <td>8 months</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quarterly Scheme</td>
+                                        <td>2.50%</td>
+                                        <td>12500.00</td>
+                                        <td>2 years 0 month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annual Scheme</td>
+                                        <td>5.00%</td>
+                                        <td>12000.00</td>
+                                        <td>5 years 0 month</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <br>
+                        <h5 class="card-title">Senior Citizens FD Rate</h5>
+                        <div class="table-responsive" data-pattern="priority-columns">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background-color: rgb(192, 192, 192);">
+                                    <tr>
+                                        <th data-priority="1">Scheme Name</th>
+                                        <th data-priority="2">Interest</th>
+                                        <th data-priority="3">Depoit Amount</th>
+                                        <th data-priority="4">Tenure</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Monthly Scheme</td>
+                                        <td>2.00%</td>
+                                        <td>12000.00</td>
+                                        <td>8 months</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quarterly Scheme</td>
+                                        <td>2.50%</td>
+                                        <td>12500.00</td>
+                                        <td>2 years 0 month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annual Scheme</td>
+                                        <td>5.00%</td>
+                                        <td>12000.00</td>
+                                        <td>5 years 0 month</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="button d-flex justify-content-center mt-2">
+                        <button *ngIf="!detailedInfo" type="button" class="btn btn-info mr-2"
+                            (click)="detailedInfo=!detailedInfo">Detailed
+                            Info</button>
+                        <button type="button" class="btn btn-danger" (click)="schemes=!schemes;form=!form">Back
+                        </button>
+                    </div>
+                </div>
+
+                <!-- deposit summary or preview -->
+                <div *ngIf="preview" class="preview" [(ngModel)]="postdata" ngDefaultControl>
+                    <label class="card-title">Review Your Fixed deposit details</label>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Name</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>Sathish</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Deposit Amount</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>Rs: {{postdata['Amount']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Account</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>{{postdata['User_account_number']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Tenure</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>{{postdata['Maturity_months']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Maturity date</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <label>{{postdata['Maturity_period']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Rate of interest</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <label>{{postdata['interest']}}%</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Maturity Amount</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <label>Rs: {{postdata['Maturity_amount']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Nominee</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <label>{{postdata['Nominee_name']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Nominee Type</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <label> {{postdata['Nominee_type']}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 mt-4">
+                            <button (click)="preview=!preview;schemes=!schemes"
+                                class="btn btn-danger mr-2 btn-fw">Back</button>
+                            <button class="btn btn-info btn-fw float-right" (click)="confirmfd()">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

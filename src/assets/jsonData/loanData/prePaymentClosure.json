@@ -1,0 +1,22 @@
+[
+    {
+      "AccountNumber": "XXXXXX1234",
+      "PaidAmount": 12000,
+      "PaidPriceAmount": 7000,
+      "PaidInterestAmount": 1000,
+      "TotalAmountPaid": 12000,
+      "TotalBalance": 18000,
+      "PrepaymentCharge": 1000,
+      "PrepaymentFee": 1400
+    },
+    {
+      "AccountNumber": "XXXXXX4321",
+      "PaidAmount": 12000,
+      "PaidPriceAmount": 8500,
+      "PaidInterestAmount": 1050,
+      "TotalAmountPaid": 12200,
+      "TotalBalance": 19500,
+      "PrepaymentCharge": 1200,
+      "PrepaymentFee": 1000
+    }
+  ]

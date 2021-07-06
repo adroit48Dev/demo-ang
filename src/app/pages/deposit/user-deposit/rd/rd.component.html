@@ -1,0 +1,329 @@
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div *ngIf="form" [formGroup]="rdForm">
+                    <h5 class="card-title">Open Recurring deposit</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">How much would you like contribute monthly</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control" autofocus placeholder="Enter Deposit Amount"
+                                formControlName="Amount" [ngClass]="{ 'is-invalid': submitted&&f.Amount.errors}">
+                            <div *ngIf="submitted&&f.Amount.errors" class="invalid-feedback">
+                                <div>Amount is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">From which account would you like to continue</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" formControlName="User_account_number"
+                                [ngClass]="{ 'is-invalid': submitted&&f.User_account_number.errors}">
+                                <option value="" selected disabled hidden>Choose Your Account No</option>
+                                <option value="XXXXXXXXXXXXX9879">XXXXXXXXXXXXX9879</option>
+                                <option value="XXXXXXXXXXXXX8789">XXXXXXXXXXXXX8789</option>
+                            </select>
+                            <div *ngIf="submitted&&f.User_account_number.errors" class="invalid-feedback">
+                                <div>User account number is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Nominee Details</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" placeholder="Nominee Name"
+                                formControlName="Nominee_name"
+                                [ngClass]="{ 'is-invalid': submitted&&f.Nominee_name.errors}">
+                            <div *ngIf="submitted&&f.Nominee_name.errors" class="invalid-feedback">
+                                <div>Nominee name is required</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" formControlName="Nominee_type"
+                                [ngClass]="{ 'is-invalid': submitted&&f.Nominee_type.errors}">
+                                <option value="" selected disabled hidden>Relationship with Depositor</option>
+                                <option value="mother">Mother</option>
+                                <option value="father">Father</option>
+                                <option value="sibling">sibling</option>
+                            </select>
+                            <div *ngIf="submitted&&f.Nominee_type.errors" class="invalid-feedback">
+                                <div>Nominee type is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">For how long would you like to save</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" formControlName="year"
+                                [ngClass]="{ 'is-invalid': submitted&&f.year.errors}">
+                                <option value="" selected disabled hidden>select year</option>
+                                <option value="1">1 year</option>
+                                <option value="2">2 year</option>
+                            </select>
+                            <div *ngIf="submitted&&f.year.errors" class="invalid-feedback">
+                                <div>year is required</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control" formControlName="smonth"
+                                [ngClass]="{ 'is-invalid': submitted&&f.smonth.errors}">
+                                <option value="" selected disabled hidden>select month</option>
+                                <option value="0">0 month</option>
+                                <option value="1">1 month</option>
+                            </select>
+                            <div *ngIf="submitted&&f.smonth.errors" class="invalid-feedback">
+                                <div>month is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Schedule a monthly transfer</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input nbInput placeholder="Opening Date" type="date" class="form-control"
+                                formControlName="monthly_date"
+                                [ngClass]="{ 'is-invalid': submitted&&f.monthly_date.errors}">
+                            <div *ngIf="submitted&&f.monthly_date.errors" class="invalid-feedback">
+                                <div>month is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-info btn-fw float-right"
+                                (click)="toSchemes()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- schemes options -->
+                <div *ngIf="schemes" class="schemes-container">
+                    <h4 class="card-title">Schemes</h4>
+                    <hr>
+                    <div class="cards">
+                        <div class="card" *ngFor="let testString of schemahtml">
+                            <div class="card-body">
+                                <h5 class="card-title">{{testString[0]}}</h5>
+                                <hr style="border-color: #96f18a;">
+                                <div class="container">
+                                    <p><b>Scheme Details:</b> </p>
+
+                                    <ul>
+                                        <li>
+                                            <p>Interest Rate : {{testString[1]}} </p>
+                                        </li>
+                                        <li>
+                                            <p>Minimun Amount : {{testString[3]}} </p>
+                                        </li>
+                                        <li>
+                                            <p>Maximun Amount : {{testString[4]}} </p>
+                                        </li>
+
+                                    </ul>
+                                    <hr style="border-color: #96f18a;">
+                                    <button (click)="toPreview(testString[2])"
+                                        class="btn btn-success btn-block">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- detailed info tables -->
+                    <div *ngIf="detailedInfo" class="detailed-info mt-4">
+                        <h5 class="card-title">General Public FD Rate</h5>
+                        <div class="table-responsive" data-pattern="priority-columns">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background-color: rgb(192, 192, 192);">
+                                    <tr>
+                                        <th data-priority="1">Scheme Name</th>
+                                        <th data-priority="2">Interest</th>
+                                        <th data-priority="3">Deposit Amount</th>
+                                        <th data-priority="4">Tenure</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Monthly Scheme</td>
+                                        <td>2.00%</td>
+                                        <td>12000.00</td>
+                                        <td>8 months</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quarterly Scheme</td>
+                                        <td>2.50%</td>
+                                        <td>12500.00</td>
+                                        <td>2 years 0 month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annual Scheme</td>
+                                        <td>5.00%</td>
+                                        <td>12000.00</td>
+                                        <td>5 years 0 month</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <br>
+                        <h5 class="card-title">Senior Citizens FD Rate</h5>
+                        <div class="table-responsive" data-pattern="priority-columns">
+                            <table class="table table-bordered table-hover">
+                                <thead style="background-color: rgb(192, 192, 192);">
+                                    <tr>
+                                        <th data-priority="1">Scheme Name</th>
+                                        <th data-priority="2">Interest</th>
+                                        <th data-priority="3">Depoit Amount</th>
+                                        <th data-priority="4">Tenure</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Monthly Scheme</td>
+                                        <td>2.00%</td>
+                                        <td>12000.00</td>
+                                        <td>8 months</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quarterly Scheme</td>
+                                        <td>2.50%</td>
+                                        <td>12500.00</td>
+                                        <td>2 years 0 month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annual Scheme</td>
+                                        <td>5.00%</td>
+                                        <td>12000.00</td>
+                                        <td>5 years 0 month</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="button d-flex justify-content-center mt-2">
+                        <button *ngIf="!detailedInfo" type="button" class="btn btn-info mr-2"
+                            (click)="detailedInfo=!detailedInfo">Detailed
+                            Info</button>
+                        <button type="button" class="btn btn-danger" (click)="schemes=!schemes;form=!form">Back
+                        </button>
+                    </div>
+                </div>
+
+
+                <div id="rd-receipt">
+                    <div id="rd-receipt" *ngIf="reviewfield" [(ngModel)]="postdata" ngDefaultControl>
+                        <label class="card-title">Review Your Recurring deposit details</label>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="mb-0">Name</label>
+                            </div>
+                            <div class="col-sm-9 ">
+                                <label>Sathish</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="mb-0">monthly contribution</label>
+                            </div>
+                            <div class="col-sm-9 ">
+                                <label>Rs: {{postdata['Amount']}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="mb-0">monthly contribution date</label>
+                            </div>
+                            <div class="col-sm-9 ">
+                                <label>{{postdata['monthly_recurring_date']}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="mb-0">Account</label>
+                            </div>
+                            <div class="col-sm-9 ">
+                                <label>{{postdata['User_account_number']}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="mb-0">Tenure</label>
+                            </div>
+                            <div class="col-sm-9 ">
+                                <label>{{postdata['Maturity_months']}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="mb-0">Nominee name</label>
+                            </div>
+                            <div class="col-sm-9 ">
+                                <label>{{postdata['Nominee_name']}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="mb-0">Nominee relation with depositor</label>
+                            </div>
+                            <div class="col-sm-9 ">
+                                <label>{{postdata['Nominee_type']}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="mb-0">Maturity date</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <label>{{postdata['Maturity_period']}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="mb-0">Rate of interest</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <label>{{postdata['interest']}}%</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-info btn-fw float-right"
+                                    (click)="confirmrd()">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+[
+    {
+        "AccountNumber": "XXXXXXXXXX1234",
+        "UserName": "Vignesh",
+        "TotalPaidAmount": 18000.00,
+        "Balance": 12000.00,
+        "OverDueCharge": 100.00,
+        "DaysInArrear": 25,
+        "DaysLate": 12,
+        "TotalInterestPaid": 10000.00,
+        "TotalPrincipalPaid": 12000.00,
+        "Tenure": 12,
+        "MonthlyEMI": 1000.00,
+        "Since": "01-12-2021"
+    },
+    {
+        "AccountNumber": "XXXXXXXXXX4321",
+        "UserName": "Karthik",
+        "TotalPaidAmount": 20000.00,
+        "Balance": 10000.00,
+        "OverDueCharge": 150.00,
+        "DaysInArrear": 60,
+        "DaysLate": 25,
+        "TotalInterestPaid": 12000.00,
+        "TotalPrincipalPaid": 25000.00,
+        "Tenure": 10,
+        "MonthlyEMI": 3000.00,
+        "Since": "02-10-2021"
+    }
+]

@@ -1,0 +1,88 @@
+<nb-card>
+    <nb-card-body class="example-items-col" >
+        <form [formGroup]="feedetailsupdate" >         
+            <h6>Fee Details Update <button type="button" class="close" aria-label="Close" (click)="feeview()">
+              <span aria-hidden="true">&times;</span>
+            </button></h6>
+            <br>                
+            <br>
+            <div class="row">
+              <div class="col">
+                <label class="required label">Branch Name</label>
+              <select class="form-control" id="branchname" formControlName="branchname" placeholder="select Branch Name" 
+              [ngClass]="{ 'is-invalid': submitted&&f.branchname.errors}" ngModel="{{ feeData[0].branchname }}">
+              <option value=0 disabled>Select Branch</option>
+              <option *ngFor="let option of branchnamelist[0]" value="{{option['branch_id']}}">{{option.branch_name}}</option>                                                     
+          </select>
+          <div *ngIf="submitted && f.branchname.errors" class="invalid-feedback">
+            <div *ngIf="f.branchname.errors.required">Branch Name is required</div>
+          </div>
+              </div>    
+                <div class="col"> 
+                  <label class="required">Product Name</label>
+                  <input type="text" class="form-control" name="productname" formControlName="productname"
+                    [ngClass]="{ 'is-invalid': submitted && f.productname.errors }" ngModel="{{feeData[0].productname}}">
+                  <div *ngIf="submitted && f.productname.errors" class="invalid-feedback">
+                    <div *ngIf="f.productname.errors.required">Product Name is required</div>
+                  </div>
+                </div>
+            </div>          
+            <br>            
+            <div class="row">
+              <div class="col">
+                <label class="required">Fee Name</label>  
+                <input type="text" class="form-control" name="feename" formControlName="feename"
+                [ngClass]="{ 'is-invalid': submitted && f.feename.errors }" ngModel="{{feeData[0].feename}}">  
+                <div *ngIf="submitted && f.feename.errors" class="invalid-feedback">
+                  <div *ngIf="f.feename.errors.required">Fee Name is required</div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="required">Fee rate</label>
+                <input type="text" class="form-control" name="feerate" formControlName="feerate"
+                [ngClass]="{ 'is-invalid': submitted && f.feerate.errors }" ngModel="{{feeData[0].feerate}}"> 
+                <div *ngIf="submitted && f.feerate.errors" class="invalid-feedback">
+                  <div *ngIf="f.feerate.errors.required">Fee rate is required</div>
+                </div>
+              </div>
+            </div>
+              <br>
+            <div class="row">
+            <div class="col">
+              <label class="required">Fee Interest</label>  
+              <input type="text" class="form-control" name="feeinterest" formControlName="feeinterest"
+                [ngClass]="{ 'is-invalid': submitted && f.feeinterest.errors }" ngModel="{{feeData[0].feeinterest}}"> 
+                <div *ngIf="submitted && f.feeinterest.errors" class="invalid-feedback">
+                  <div *ngIf="f.feeinterest.errors.required">Fee Interest is required</div>
+                </div>
+            </div>
+            <div class="col">
+            <label class="required">Fee Condition</label>  
+            <input type="text" class="form-control" name="feecondition" formControlName="feecondition"
+            [ngClass]="{ 'is-invalid': submitted && f.feecondition.errors }" ngModel="{{feeData[0].feecondition}}"> 
+            <div *ngIf="submitted && f.feecondition.errors" class="invalid-feedback">
+              <div *ngIf="f.feecondition.errors.required">Fee Condition is required</div>
+            </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <label class="required">Fee Description</label>  
+              <input type="text" class="form-control" name="feedesc" formControlName="feedescription"
+            [ngClass]="{ 'is-invalid': submitted && f.feedescription.errors }" ngModel="{{feeData[0].feedescription}}">
+            <div *ngIf="submitted && f.feedescription.errors" class="invalid-feedback">
+              <div *ngIf="f.feedescription.errors.required">Fee Description is required</div>
+            </div>
+            </div>      
+          </div>
+          <br>  
+          <button nbButton class="float-right ml-3 appearance-hero status-primary" (click)="feeview()">
+            Back
+          </button>            
+          <button nbButton class="float-right ml-3 appearance-hero status-success" (click)="onSubmit()">Update</button>
+          <button nbButton class="float-right status-danger" (click)="onReset()">Reset</button>
+          </form>
+    </nb-card-body>
+  </nb-card>
+  

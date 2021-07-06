@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Loan Prepayment</h5>
+                <hr>
+                <table>
+                    <tr>
+                        <td><label for="accno">Account Number</label>
+                        </td>
+                        <td>
+                            <p>{{prePayData[0].AccountNumber}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="balance">Total Balance</label></td>
+                        <td>
+                            <p>{{prePayData[0].TotalBalance}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="charge">Payment Charge</label></td>
+                        <td>
+                            <p>{{prePayData[0].PrepaymentCharge}}</p>
+                        </td>
+                    </tr>
+                </table>
+                <div class="pay-button mt-4">
+                    <button (click)="onProceed()" class="btn btn-success">Proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

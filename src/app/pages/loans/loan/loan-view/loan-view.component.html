@@ -1,0 +1,57 @@
+<nb-card>
+        <nb-card-header class="branchHeader">Loan List<button nbButton
+                        class="float-right appearance-hero status-success" routerLink="loan-creation-form">Create
+                        Loan</button>
+        </nb-card-header>
+        <nb-card-body class="example-items-col mt-4 ">
+                <div class="row">
+
+                        <div class="col-6" *ngFor="let data of LoanData" (click)="rowSelected(data._id)">
+                                <nb-card class="branch-card">
+                                        <div class="Details"><label class="col-6"
+                                                        style="font-size: 20px;font-weight: bold;padding-left: 0px;">Product
+                                                        Name
+                                                </label> <span style="font-size: 20px;">{{ data.productname }}</span>
+                                        </div>
+
+                                        <div class="Details"><label class="col-6"
+                                                        style="font-size: 20px;font-weight: bold;padding-left: 0px;">Interest
+                                                        Type
+                                                </label> <span style="font-size: 20px;">{{ data.interesttype }}</span>
+                                        </div>
+                                        <div class="Details"><label class="col-6"
+                                                        style="font-size: 20px;font-weight: bold;padding-left: 0px;">Tenure
+
+                                                </label> <span style="font-size: 20px;">{{ data.tenure }}</span></div>
+                                        <div class="row">
+                                                <div class="Details col-6"><label
+                                                                style="font-size: 14px;font-weight: bold;padding-left: 0px;">Min-Interest:
+                                                        </label> <span style="font-size: 14px;">{{
+                                                                data.minimuminterestrate }} %</span></div>
+                                                <div class="Details col-6"><label
+                                                                style="font-size: 14px;font-weight: bold;padding-left: 0px;">Max-Interest:
+                                                        </label> <span style="font-size: 14px;">{{
+                                                                data.maximuminterestrate }} %</span></div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="Details col-6"><label
+                                                                style="font-size: 14px;font-weight: bold;padding-left: 0px;">Min-Amount:
+                                                        </label> <span style="font-size: 14px;"> RS {{
+                                                                data.minimumamount }}</span></div>
+                                                <div class="Details col-6"><label
+                                                                style="font-size: 14px;font-weight: bold; padding-left: 0px;">Max-Amount:
+                                                        </label> <span style="font-size: 14px;"> RS {{
+                                                                data.maximumamount }}</span></div>
+                                        </div>
+                                        <!-- <h1>loan <a routerLink="update-deposit-condition"><i class="fas fa-edit float-right"
+                                    style="font-size: 17px;"></i></a></h1> -->
+                                </nb-card>
+                        </div>
+
+
+                </div>
+
+
+
+        </nb-card-body>
+</nb-card>

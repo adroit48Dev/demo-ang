@@ -1,0 +1,57 @@
+<ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+type="ball-scale-multiple"
+>
+<p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <form [formGroup]="defaultHolidayUpdateForm">
+            <div class="row">
+                <div class="col">
+                    <label class="required label">Day Of Week</label>
+                    <input type="text" class="form-control" name="dayofweek" formControlName="dayofweek"
+                        [ngClass]="{ 'is-invalid': submitted && f.dayofweek.errors }" required>
+                    <div *ngIf="submitted && f.dayofweek.errors" class="invalid-feedback">
+                        <div *ngIf="f.dayofweek.errors.required">Day of Week is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required label">Month</label>
+                    <input type="text" class="form-control" name="month" formControlName="month"
+                        [ngClass]="{ 'is-invalid': submitted && f.month.errors }" required>
+                    <div *ngIf="submitted && f.month.errors" class="invalid-feedback">
+                        <div *ngIf="f.month.errors.required">Month is required</div>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="row">
+                <div class="col">
+                    <label class="required label">Year</label>
+                    <input type="number" class="form-control" name="year" formControlName="year"
+                        [ngClass]="{ 'is-invalid': submitted && f.year.errors }" required>
+                    <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                        <div *ngIf="f.year.errors.required">Year is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required label">Date</label>
+                    <input type="date" class="form-control" name="date" formControlName="date"
+                        [ngClass]="{ 'is-invalid': submitted && f.date.errors }" required>
+                    <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                        <div *ngIf="f.date.errors.required">Date is required</div>
+                    </div>
+                </div>
+            </div><br>
+            <button nbButton class="float-right ml-3 appearance-hero status-primary" (click)="defaultHolidayView()">
+                Back
+            </button>
+            <button nbButton class="float-right status-danger" (click)="onReset()">Reset</button>
+            <button nbButton class="float-right mr-3 appearance-hero status-success"
+                (click)="onSubmit()">Update</button>
+        </form>
+    </nb-card-body>
+</nb-card>

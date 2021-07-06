@@ -1,0 +1,31 @@
+<nb-card>
+  <nb-card-header class="accountHeader">
+    <h5>Employees Details</h5><button nbButton class="float-right appearance-hero status-success"
+      (click)="CreateEmployee()">Create
+      Employee</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+      <div class="col-6" *ngFor="let employeeDetails of employeesDetails">
+        <nb-card class="Account-card">
+          <div class="row">
+            <div class="col-5">
+              <div class="heading">Employee Name </div>
+              <div class="subHeading">Employee ID </div>
+              <div class="subHeading">Employee Email </div>
+              <div class="subHeading">Designation </div>
+            </div>
+
+            <div class="col-7">
+              <div class="heading">{{employeeDetails?.first_name}} <a (click)="updateEmployee(employeeDetails?._id)"><i
+                    class="fas fa-edit float-right"></i></a></div>
+              <div class=" subHeading">{{employeeDetails?.username}}</div>
+              <div class="subHeading">{{ employeeDetails?.email}}</div>
+              <div class="subHeading">{{ employeeDetails?.designation }}</div>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

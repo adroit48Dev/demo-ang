@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Opening Deposit Account</h5>
+        <hr>
+        <br>
+        <div class="card-container d-flex justify-content-center">
+          <a routerLink="fd">
+            <button class="btn btn-success custom-btn mr-4">Fixed Deposit</button>
+          </a>
+
+          <a routerLink="rd">
+            <button class="btn btn-success custom-btn">Recurring Deposit</button>
+
+          </a>
+        </div>
+        <br>
+        <!-- account status -->
+        <div class="account-status">
+          <div class="filter">
+            <h6 class="card-title">Deposit Details</h6>
+            <input class="form-control" (keyup)="applyFilter($event.target.value)" placeholder="Search Anything" #input>
+          </div>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+            <ng-container matColumnDef="AccountNumber">
+              <th mat-header-cell *matHeaderCellDef> Account Number </th>
+              <td mat-cell *matCellDef="let element"> {{element.AccountNumber}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="DepositAmount">
+              <th mat-header-cell *matHeaderCellDef> Deposit Amount </th>
+              <td mat-cell *matCellDef="let element"> {{element.DepositAmount}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="DepositType">
+              <th mat-header-cell *matHeaderCellDef> Deposit Type </th>
+              <td mat-cell *matCellDef="let element"> {{element.DepositType}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="TotalAmount">
+              <th mat-header-cell *matHeaderCellDef> Total Amount </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalAmount}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status </th>
+              <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element">
+                <button class="btn btn-primary btn-sm" (click)='depositInfo(element.id)'>Details</button>
+              </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">Bank Deposit Form<button type="button" class="close" aria-label="Close"
+                (click)="ViewDeposit()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <hr>
+        <form class="forms-sample" [formGroup]="depositForm">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label" for="name">Product Name</label>
+                        <input type="text" class="form-control" id="product_name" formControlName="product_name"
+                            [ngClass]="{ 'is-invalid': submitted&&f.product_name.errors}">
+                        <div *ngIf="submitted&&f.product_name.errors" class="invalid-feedback">
+                            <div>product name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label" for="name">Product Detail</label>
+                        <input type="text" class="form-control" id="product_detail" formControlName="product_detail"
+                            [ngClass]="{ 'is-invalid': submitted&&f.product_detail.errors}">
+                        <div *ngIf="submitted&&f.product_detail.errors" class="invalid-feedback">
+                            <div>Product Detail is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons mt-4">
+                    <button nbButton class="appearance-hero status-success" (click)="onSubmit()">Create</button>
+                    <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                    <button nbButton class="ml-3 appearance-hero status-primary" (click)="ViewDeposit()">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

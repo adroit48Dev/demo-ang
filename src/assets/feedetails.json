@@ -1,0 +1,27 @@
+[
+    {
+        "id":12,
+        "branchname":"Chennai",
+         "productname":"Product 1",
+         "feename":"Recurring Fee",
+         "feerate":12345,
+         "Feedid":12345,
+         "feeinterest":123245,
+         "feecondition":12313,
+         "feedesc":123123
+     },
+
+    {
+        "id":2,
+        "branchname":"Tambaram",
+         "productname":"Product 2",
+         "feename":"One Time Fee",
+         "feerate":12345,
+         "Feedid":12345,
+         "feeinterest":123245,
+         "feecondition":12313,
+         "feedesc":123123
+     }
+
+
+]

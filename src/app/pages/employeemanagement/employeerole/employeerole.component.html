@@ -1,0 +1,136 @@
+
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <h6>Create Employee Role<button type="button" class="close" aria-label="Close" (click)="viewEmployeeRole()">
+        <span aria-hidden="true">&times;</span>
+      </button></h6>
+    <hr>
+    <form [formGroup]="employeeRoleForm">
+      <label class="required label">Role Name</label>
+      <input type="text" class="form-control" name="rolename" formControlName="rolename"
+        [ngClass]="{ 'is-invalid': submitted && f.rolename.errors }">
+      <div *ngIf="submitted && f.rolename.errors" class="invalid-feedback">
+        <div *ngIf="f.rolename.errors.required">Role Name is required</div>
+      </div>
+      <br>
+      <h6>Accessible Services</h6>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <label class="required label">Create</label><br>
+              <select class="form-control" name="create" formControlName="create"
+                [ngClass]="{ 'is-invalid': submitted && f.create.errors }">
+                <option value="" selected disabled hidden>Choose Your Option</option>
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+              </select>
+              <div *ngIf="submitted && f.create.errors" class="invalid-feedback">
+                <div *ngIf="f.create.errors.required">Create option is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <label class="required label">Edit</label><br>
+              <select class="form-control" name="edit" formControlName="edit"
+                [ngClass]="{ 'is-invalid': submitted && f.edit.errors }">
+                <option value="" selected disabled hidden>Choose Your Option</option>
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+              </select>
+              <div *ngIf="submitted && f.edit.errors" class="invalid-feedback">
+                <div *ngIf="f.edit.errors.required">edit option is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <label class="required label">View</label><br>
+              <select class="form-control" name="view" formControlName="view"
+                [ngClass]="{ 'is-invalid': submitted && f.view.errors }">
+                <option value="" selected disabled hidden>Choose Your Option</option>
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+              </select>
+              <div *ngIf="submitted && f.view.errors" class="invalid-feedback">
+                <div *ngIf="f.view.errors.required">view Option is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <label class="required label">Delete</label><br>
+              <select class="form-control" name="delete" formControlName="delete"
+                [ngClass]="{ 'is-invalid': submitted && f.delete.errors }">
+                <option value="" selected disabled hidden>Choose Your Option</option>
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+              </select>
+              <div *ngIf="submitted && f.delete.errors" class="invalid-feedback">
+                <div *ngIf="f.delete.errors.required">delete Option is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Restrict Login Count</label>
+          <input type="number" class="form-control" maxlength="2" name="restrict_logincount"
+            formControlName="restrict_logincount"
+            [ngClass]="{ 'is-invalid': submitted && f.restrict_logincount.errors }">
+          <div *ngIf="submitted && f.restrict_logincount.errors" class="invalid-feedback">
+            <div *ngIf="f.restrict_logincount.errors.required">login count restriction is required</div>
+            <!-- login count must be 0-20 -->
+          </div>
+        </div>
+        <div class="col">
+          <!-- multiSelect -->
+          <label class="required label">Access Service Name</label>
+          <select class="form-control" name="access_service_id" formControlName="access_service_id"
+            [ngClass]="{ 'is-invalid': submitted && f.access_service_id.errors }">
+            <option value="" selected disabled hidden>Choose Your Option</option>
+            <option value="True">Yes</option>
+            <option value="False">No</option>
+          </select>
+          <div *ngIf="submitted && f.access_service_id.errors" class="invalid-feedback">
+            <div *ngIf="f.access_service_id.errors.required">access service id is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Transaction Limit Name</label>
+          <select class="form-control" name="transaction_limit_id" formControlName="transaction_limit_id"
+            [ngClass]="{ 'is-invalid': submitted && f.transaction_limit_id.errors }" >
+            <option value="" selected disabled hidden>Choose Your Option</option>
+          <option  *ngFor="let item of TransLimit" value="{{ item._id }}">{{ item.condition_name }}</option>
+          </select>
+          <div *ngIf="submitted && f.transaction_limit_id.errors" class="invalid-feedback">
+            <div *ngIf="f.transaction_limit_id.errors.required">transaction limit id is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="buttons mt-4">
+            <button nbButton class=" appearance-hero status-success" (click)="onSubmit($event)">Create</button>
+            <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+            <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewEmployeeRole()">
+              Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

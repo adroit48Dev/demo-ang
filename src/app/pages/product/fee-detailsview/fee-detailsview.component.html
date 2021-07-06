@@ -1,0 +1,31 @@
+<nb-card>
+  <nb-card-header class="feeHeader">
+    <h5>Fee Details</h5><a routerLink="/pages/product/feedetails">
+      <button nbButton class="float-right appearance-hero status-success" (click)="Createfee()">Create Fee
+        Details</button></a>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+      <div class="col-6" *ngFor="let data of FeeDetailsData">
+        <nb-card class="fee-card">
+          <div class="row">
+            <div class="col-6">
+              <div class=" heading">Product Name </div>
+              <div class=" subHeading">Branch Name </div>
+              <div class="subHeading">Fee Name </div>
+            </div>
+            <div class="col-6">
+              <div class="heading">{{ data.productname }}
+                <a><i class="fas fa-edit float-right" (click)="feedetailsid(data.id)"></i></a>
+              </div>
+              <div class="subHeading">{{ data.branchname }}</div>
+              <div class="subHeading">{{ data.feename }}</div>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<!-- update path= /pages/product/feedetailsupdate -->

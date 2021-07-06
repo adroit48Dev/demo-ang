@@ -1,0 +1,117 @@
+// /*====================
+// Login CSS
+// ====================*/
+.navbar {
+  background-color: #fff;
+  color: #edece8;
+}
+.register a {
+  color: #034488;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  border-radius: 32px;
+  &:hover {
+    color: #178fd6;
+    text-decoration: none;
+    cursor: pointer;
+    transition: ease all 2s;
+  }
+}
+.loginContainer {
+  margin: 0 30px;
+  padding: 0;
+}
+.login-form {
+  padding: 10px 5% 0;
+  background: transparent;
+  position: relative;
+  display: block;
+  form {
+    margin: 50px auto;
+  }
+}
+.signborder {
+  width: 30%;
+  float: left;
+  border: 1px solid #034488;
+}
+.btn {
+  border: 2px solid #96c3ea;
+  font-weight: 500;
+  background-color: transparent;
+  color: #034488;
+  text-decoration: none;
+  float: right;
+  &:hover {
+    background-color: #96c3ea;
+    transition: 0.5s ease-in all;
+    color: #034488;
+  }
+}
+.prime {
+  margin: 50px auto !important;
+}
+.login-form {
+  h3 {
+    color: #034488;
+  }
+  h2 {
+    color: #fffcf6;
+    margin-left: 5em;
+    margin-top: 0%;
+  }
+  p {
+    color: #fffcf6;
+    margin-left: 32%;
+    margin-top: -5%;
+    font-size: smaller;
+  }
+  a {
+    color: #034488;
+  }
+}
+
+label {
+  color: #034488;
+  font-size: large;
+  font-weight: 200;
+  // word-spacing: 5mm;
+}
+form {
+  i {
+    color: #034488;
+  }
+}
+.forgot-pwd {
+  text-decoration: none;
+  float: right;
+  color: #034488;
+  &:hover {
+    text-decoration: none;
+    float: right;
+    color: #034488;
+  }
+}
+
+.registerBtn {
+  font-weight: 500;
+  background-color: transparent;
+  color: #034488;
+  text-decoration: none;
+  float: right;
+  margin-top: -35px;
+  cursor: pointer;
+  a {
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+ngb-carousel {
+  h3,
+  p {
+    color: white;
+  }
+}

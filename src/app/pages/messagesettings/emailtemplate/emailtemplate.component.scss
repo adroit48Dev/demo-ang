@@ -1,0 +1,253 @@
+.inbox {
+	.inbox-menu {
+		ul {
+			margin-top: 30px;
+			padding: 0;
+			list-style: none;
+			li {
+				height: 30px;
+				padding: 5px 15px;
+				position: relative;
+				&:hover {
+					background: #e4e5e6;
+				}
+				a {
+					display: block;
+					width: 100%;
+					text-decoration: none;
+					color: #3d3f42;
+					i {
+						margin-right: 10px;
+					}
+					.label {
+						position: absolute;
+						top: 10px;
+						right: 15px;
+						display: block;
+						min-width: 14px;
+						height: 14px;
+						padding: 2px;
+					}
+				}
+			}
+			li.active {
+				background: #e4e5e6;
+			}
+			li.title {
+				margin: 20px 0 -5px 0;
+				text-transform: uppercase;
+				font-size: 10px;
+				color: #d1d4d7;
+				&:hover {
+					background: 0 0;
+				}
+			}
+		}
+	}
+	ul.messages-list {
+		list-style: none;
+		margin: 15px -15px 0 -15px;
+		padding: 15px 15px 0 15px;
+		border-top: 1px solid #d1d4d7;
+		li {
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border-radius: 2px;
+			cursor: pointer;
+			margin-bottom: 10px;
+			padding: 10px;
+			a {
+				color: #3d3f42;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+			&:hover {
+				background: #e4e5e6;
+				border: 1px solid #d1d4d7;
+				padding: 9px;
+				.action {
+					color: #d1d4d7;
+				}
+			}
+			.header {
+				margin: 0 0 5px 0;
+				.from {
+					width: 49.9%;
+					white-space: nowrap;
+					overflow: hidden !important;
+					text-overflow: ellipsis;
+				}
+				.date {
+					width: 50%;
+					text-align: right;
+					float: right;
+				}
+			}
+			.title {
+				margin: 0 0 5px 0;
+				white-space: nowrap;
+				overflow: hidden !important;
+				text-overflow: ellipsis;
+			}
+			.description {
+				font-size: 12px;
+				padding-left: 29px;
+			}
+			.action {
+				display: inline-block;
+				width: 16px;
+				text-align: center;
+				margin-right: 10px;
+				color: #d1d4d7;
+				.fa-check-square-o {
+					margin: 0 -1px 0 1px;
+				}
+				.fa-square {
+					float: left;
+					margin-top: -16px;
+					margin-left: 4px;
+					font-size: 11px;
+					color: #fff;
+				}
+				.fa-star.bg {
+					float: left;
+					margin-top: -16px;
+					margin-left: 3px;
+					font-size: 12px;
+					color: #fff;
+				}
+			}
+		}
+		li.unread {
+			.header {
+				font-weight: 700;
+			}
+			.title {
+				font-weight: 700;
+			}
+		}
+	}
+	.message {
+		.message-title {
+			margin-top: 30px;
+			padding-top: 10px;
+			font-weight: 700;
+			font-size: 14px;
+		}
+		.header {
+			margin: 20px 0 30px 0;
+			padding: 10px 0 10px 0;
+			border-top: 1px solid #d1d4d7;
+			border-bottom: 1px solid #d1d4d7;
+			.avatar {
+				-webkit-border-radius: 2px;
+				-moz-border-radius: 2px;
+				border-radius: 2px;
+				height: 34px;
+				width: 34px;
+				float: left;
+				margin-right: 10px;
+			}
+			i {
+				margin-top: 1px;
+			}
+			.from {
+				display: inline-block;
+				width: 50%;
+				font-size: 12px;
+				margin-top: -2px;
+				color: #d1d4d7;
+				span {
+					display: block;
+					font-size: 14px;
+					font-weight: 700;
+					color: #3d3f42;
+				}
+			}
+			.date {
+				display: inline-block;
+				width: 29%;
+				text-align: right;
+				font-size: 12px;
+                margin-top: 18px;
+                // float: right;
+			}
+		}
+		.attachments {
+			border-top: 3px solid #e4e5e6;
+			border-bottom: 3px solid #e4e5e6;
+			padding: 10px 0;
+			margin-bottom: 20px;
+			font-size: 12px;
+			ul {
+				list-style: none;
+				margin: 0 0 0 -40px;
+				li {
+					margin: 10px 0;
+					.label {
+						padding: 2px 4px;
+					}
+					span.quickMenu {
+						float: right;
+						text-align: right;
+						.fa {
+							padding: 5px 0 5px 25px;
+							font-size: 14px;
+							margin: -2px 0 0 5px;
+							color: #d1d4d7;
+						}
+					}
+				}
+			}
+		}
+	}
+	.contacts {
+		ul {
+			margin-top: 30px;
+			padding: 0;
+			list-style: none;
+			li {
+				height: 30px;
+				padding: 5px 15px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis !important;
+				position: relative;
+				cursor: pointer;
+				.label {
+					display: inline-block;
+					width: 6px;
+					height: 6px;
+					padding: 0;
+					margin: 0 5px 2px 0;
+				}
+				&:hover {
+					background: #e4e5e6;
+				}
+			}
+		}
+	}
+}
+nb-checkbox {
+	margin-bottom: 1rem;
+  }
+  
+  .form-inline [fullWidth] {
+	flex: 1;
+  }
+  
+  .form-inline > * {
+	margin: 0 1.5rem 1.5rem 0;
+  }
+  
+  nb-card.inline-form-card nb-card-body {
+	padding-bottom: 0;
+  }
+  .templatedata{
+	  cursor: pointer;
+  }
+  .scrollable{
+  overflow-y: auto;
+  max-height: 250px;
+}

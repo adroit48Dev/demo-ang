@@ -1,0 +1,54 @@
+
+
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <h6>Update Transaction Limit<button type="button" class="close" aria-label="Close" (click)="viewTrans()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <hr>
+        <form [formGroup]="transactionLimitForm" *ngFor="let data of transData">
+            <label class=" required label">Condition Name</label>
+            <input type="te" class="form-control" name="conditionname" formControlName="conditionname"
+                [ngClass]="{ 'is-invalid': submitted && f.conditionname.errors }" ngModel="{{ data.conditionname }}">
+            <div *ngIf="submitted && f.conditionname.errors" class="invalid-feedback">
+                <div *ngIf="f.conditionname.errors.required">condition name is required</div>
+            </div> <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required label">Condition One</label><br>
+                    <select class="form-control" name="conditionone" formControlName="conditionone"
+                        [ngClass]="{ 'is-invalid': submitted && f.conditionone.errors }"
+                        ngModel="{{ data.conditionone }}">
+                        <!-- <option value="" selected disabled hidden>Choose Your Option</option> -->
+                        <option>option1</option>
+                        <option>option2</option>
+                    </select>
+                    <div *ngIf="submitted && f.conditionone.errors" class="invalid-feedback">
+                        <div *ngIf="f.conditionone.errors.required">condition is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required label">Condition Two</label><br>
+                    <select class="form-control" name="conditiontwo" formControlName="conditiontwo"
+                        [ngClass]="{ 'is-invalid': submitted && f.conditiontwo.errors }"
+                        ngModel="{{ data.conditiontwo }}">
+                        <!-- <option value="" selected disabled hidden>Choose Your Option</option> -->
+                        <option>option1</option>
+                        <option>option2</option>
+                    </select>
+                    <div *ngIf="submitted && f.conditiontwo.errors" class="invalid-feedback">
+                        <div *ngIf="f.conditiontwo.errors.required">condition is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons mt-4">
+                <button nbButton class="float-right ml-3 appearance-hero status-primary" (click)="viewTrans()">
+                    Back
+                </button>
+                <button nbButton class="float-right status-danger  " (click)="onReset()">Reset</button>
+                <button nbButton class="float-right mr-3 appearance-hero status-success"
+                    (click)="onSubmit()">Update</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

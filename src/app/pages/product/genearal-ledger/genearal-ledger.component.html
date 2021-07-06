@@ -1,0 +1,213 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <label for="Message Type" class="col-sm-2 control-label"><b>Select Type:</b></label>
+    <nb-select [(ngModel)]="selectedLevel" (selectedChange)="selected()">
+      <nb-option value="GL">Genearal Ledger</nb-option>
+      <nb-option value="HT">HQ Transaction</nb-option>
+      <nb-option value="VT">vault Transaction</nb-option>
+    </nb-select>
+    <br>
+    <br>
+    <div *ngIf="replytype =='GL'">
+      <form [formGroup]="GenearalLedger">
+        <h6>Genearal Ledger</h6>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label class="required label">Bank Name</label>
+            <input type="text" class="form-control" name="Bankname" formControlName="Bankname"
+              [ngClass]="{ 'is-invalid': submitted && f.Bankname.errors }">
+            <div *ngIf="submitted && f.Bankname.errors" class="invalid-feedback">
+              <div *ngIf="f.Bankname.errors.required">Bank Name is required</div>
+            </div>
+          </div>
+          <div class="col">
+            <label class="required label">Branch Name</label>
+            <input type="text" class="form-control" name="Branchname" formControlName="Branchname"
+              [ngClass]="{ 'is-invalid': submitted && f.Branchname.errors }">
+            <div *ngIf="submitted && f.Branchname.errors" class="invalid-feedback">
+              <div *ngIf="f.Branchname.errors.required">Branch Name is required</div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label class="required label">From Account</label>
+            <input type="text" class="form-control" name="fromaccount" formControlName="fromaccount"
+              [ngClass]="{ 'is-invalid': submitted && f.fromaccount.errors }">
+            <div *ngIf="submitted && f.fromaccount.errors" class="invalid-feedback">
+              <div *ngIf="f.fromaccount.errors.required">From Account is required</div>
+            </div>
+          </div>
+          <div class="col">
+            <label class="required label">To Account</label>
+            <input type="text" class="form-control" name="toaccount" formControlName="toaccount"
+              [ngClass]="{ 'is-invalid': submitted && f.toaccount.errors }">
+            <div *ngIf="submitted && f.toaccount.errors" class="invalid-feedback">
+              <div *ngIf="f.toaccount.errors.required">To Account is required</div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label class="required label">Transferd Amount</label>
+            <input type="text" class="form-control" name="Transferdamount" formControlName="Transferdamount"
+              [ngClass]="{ 'is-invalid': submitted && f.Transferdamount.errors }">
+            <div *ngIf="submitted && f.Transferdamount.errors" class="invalid-feedback">
+              <div *ngIf="f.Transferdamount.errors.required">Transferd Amount is required</div>
+            </div>
+          </div>
+          <div class="col">
+            <label class="required label">Description</label>
+            <input type="text" class="form-control" name="Description" formControlName="Description"
+              [ngClass]="{ 'is-invalid': submitted && f.Description.errors }">
+            <div *ngIf="submitted && f.Description.errors" class="invalid-feedback">
+              <div *ngIf="f.Description.errors.required">Description is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons mt-4">
+          <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Create</button>
+          <button nbButton class="ml-3 status-danger  " (click)="onReset()">Reset</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="replytype =='HT'">
+      <form [formGroup]="GenearalLedger">
+        <h6>HQ Transaction</h6>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label class="required label">Bank Name</label>
+            <input type="text" class="form-control" name="Bankname" formControlName="Bankname"
+              [ngClass]="{ 'is-invalid': submitted && f.Bankname.errors }">
+            <div *ngIf="submitted && f.Bankname.errors" class="invalid-feedback">
+              <div *ngIf="f.Bankname.errors.required">Bank Name is required</div>
+            </div>
+          </div>
+          <div class="col">
+            <label class="required label">Branch Name</label>
+            <input type="text" class="form-control" name="Branchname" formControlName="Branchname"
+              [ngClass]="{ 'is-invalid': submitted && f.Branchname.errors }">
+            <div *ngIf="submitted && f.Branchname.errors" class="invalid-feedback">
+              <div *ngIf="f.Branchname.errors.required">Branch Name is required</div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label class="required label">From Account</label>
+            <input type="text" class="form-control" name="fromaccount" formControlName="fromaccount"
+              [ngClass]="{ 'is-invalid': submitted && f.fromaccount.errors }">
+            <div *ngIf="submitted && f.fromaccount.errors" class="invalid-feedback">
+              <div *ngIf="f.fromaccount.errors.required">From Account is required</div>
+            </div>
+          </div>
+          <div class="col">
+            <label class="required label">To Account</label>
+            <input type="text" class="form-control" name="toaccount" formControlName="toaccount"
+              [ngClass]="{ 'is-invalid': submitted && f.toaccount.errors }">
+            <div *ngIf="submitted && f.toaccount.errors" class="invalid-feedback">
+              <div *ngIf="f.toaccount.errors.required">To Account is required</div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label class="required label">Transferd Amount</label>
+            <input type="text" class="form-control" name="Transferdamount" formControlName="Transferdamount"
+              [ngClass]="{ 'is-invalid': submitted && f.Transferdamount.errors }">
+            <div *ngIf="submitted && f.Transferdamount.errors" class="invalid-feedback">
+              <div *ngIf="f.Transferdamount.errors.required">Transferd Amount is required</div>
+            </div>
+          </div>
+          <div class="col">
+            <label class="required label">Description</label>
+            <input type="text" class="form-control" name="Description" formControlName="Description"
+              [ngClass]="{ 'is-invalid': submitted && f.Description.errors }">
+            <div *ngIf="submitted && f.Description.errors" class="invalid-feedback">
+              <div *ngIf="f.Description.errors.required">Description is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons mt-4">
+          <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Create</button>
+          <button nbButton class="ml-3 status-danger  " (click)="onReset()">Reset</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="replytype =='VT'">
+      <form [formGroup]="GenearalLedger">
+        <h6>Valut Transaction</h6>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label class="required label">Bank Name</label>
+            <input type="text" class="form-control" name="Bankname" formControlName="Bankname"
+              [ngClass]="{ 'is-invalid': submitted && f.Bankname.errors }">
+            <div *ngIf="submitted && f.Bankname.errors" class="invalid-feedback">
+              <div *ngIf="f.Bankname.errors.required">Bank Name is required</div>
+            </div>
+          </div>
+          <div class="col">
+            <label class="required label">Branch Name</label>
+            <input type="text" class="form-control" name="Branchname" formControlName="Branchname"
+              [ngClass]="{ 'is-invalid': submitted && f.Branchname.errors }">
+            <div *ngIf="submitted && f.Branchname.errors" class="invalid-feedback">
+              <div *ngIf="f.Branchname.errors.required">Branch Name is required</div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label class="required label">From Account</label>
+            <input type="text" class="form-control" name="fromaccount" formControlName="fromaccount"
+              [ngClass]="{ 'is-invalid': submitted && f.fromaccount.errors }">
+            <div *ngIf="submitted && f.fromaccount.errors" class="invalid-feedback">
+              <div *ngIf="f.fromaccount.errors.required">From Account is required</div>
+            </div>
+          </div>
+          <div class="col">
+            <label class="required label">To Account</label>
+            <input type="text" class="form-control" name="toaccount" formControlName="toaccount"
+              [ngClass]="{ 'is-invalid': submitted && f.toaccount.errors }">
+            <div *ngIf="submitted && f.toaccount.errors" class="invalid-feedback">
+              <div *ngIf="f.toaccount.errors.required">To Account is required</div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label class="required label">Transferd Amount</label>
+            <input type="text" class="form-control" name="Transferdamount" formControlName="Transferdamount"
+              [ngClass]="{ 'is-invalid': submitted && f.Transferdamount.errors }">
+            <div *ngIf="submitted && f.Transferdamount.errors" class="invalid-feedback">
+              <div *ngIf="f.Transferdamount.errors.required">Transferd Amount is required</div>
+            </div>
+          </div>
+          <div class="col">
+            <label class="required label">Description</label>
+            <input type="text" class="form-control" name="Description" formControlName="Description"
+              [ngClass]="{ 'is-invalid': submitted && f.Description.errors }">
+            <div *ngIf="submitted && f.Description.errors" class="invalid-feedback">
+              <div *ngIf="f.Description.errors.required">Description is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons mt-4">
+          <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Create</button>
+          <button nbButton class="ml-3 status-danger  " (click)="onReset()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </nb-card-body>
+</nb-card>

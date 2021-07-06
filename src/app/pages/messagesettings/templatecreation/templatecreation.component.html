@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row inbox">
+    <div class="col-md-12">
+      <nb-card>
+        <h5></h5>
+        <nb-card-header>
+          <h6>Create Message Template</h6>
+        </nb-card-header>
+        <nb-card-body>
+          <form [formGroup]="MessageTemplateForm">
+            <div class="form-group">
+              <input type="text" nbInput fullWidth placeholder="Subject*" name="message_name"
+                formControlName="message_name" [ngClass]="{ 'is-invalid': submitted && f.message_name.errors }"
+                required>
+              <div *ngIf="submitted && f.message_name.errors" class="invalid-feedback">
+                <div *ngIf="f.message_name.errors.required">Subject is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea cols="800" nbInput placeholder="Message*" name="message_details"
+                formControlName="message_details" [ngClass]="{ 'is-invalid': submitted && f.message_details.errors }"
+                required></textarea>
+              <div *ngIf="submitted && f.message_details.errors" class="invalid-feedback">
+                <div *ngIf="f.message_details.errors.required">Message is required</div>
+              </div>
+            </div>
+            <button type="submit" nbButton status="success" (click)="onSubmit()">Save</button>
+          </form>
+        </nb-card-body>
+      </nb-card>
+
+      <nb-card class="own-scroll">
+        <nb-card-header>Templates</nb-card-header>
+        <nb-card-body class="scrollable">
+          <nb-list>
+            <nb-list-item class="templatedata" (click)="open(template)" *ngFor="let template of messageTemplate">
+              {{template.message_name}}<p class="message" hidden>message content</p>
+            </nb-list-item>
+          </nb-list>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>

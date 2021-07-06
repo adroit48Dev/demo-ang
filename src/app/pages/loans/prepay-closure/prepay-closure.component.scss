@@ -1,0 +1,22 @@
+.card {
+    height: 500px;
+    .search-bar {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        .form-control {
+            width: 50%;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+        }
+        .btn-success {
+            width: 50px;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+        }
+    }
+    .content {
+        width: 70%;
+        margin: 80px auto;
+    }
+}

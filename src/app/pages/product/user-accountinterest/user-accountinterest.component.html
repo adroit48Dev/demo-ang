@@ -1,0 +1,79 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <form [formGroup]="UserAccountInterest">
+      <h6>User Account Interest</h6>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <label class="required label">User ID</label>
+          <input type="text" class="form-control" name="userid" formControlName="userid"
+            [ngClass]="{ 'is-invalid': submitted && f.userid.errors }">
+          <div *ngIf="submitted && f.userid.errors" class="invalid-feedback">
+            <div *ngIf="f.userid.errors.required">User ID is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Interest ID</label>
+          <input type="text" class="form-control" name="Interestid" formControlName="Interestid"
+            [ngClass]="{ 'is-invalid': submitted && f.Interestid.errors }">
+          <div *ngIf="submitted && f.Interestid.errors" class="invalid-feedback">
+            <div *ngIf="f.Interestid.errors.required">Interest ID is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Account No</label>
+          <input type="text" class="form-control" name="accountno" formControlName="accountno"
+            [ngClass]="{ 'is-invalid': submitted && f.accountno.errors }">
+          <div *ngIf="submitted && f.accountno.errors" class="invalid-feedback">
+            <div *ngIf="f.accountno.errors.required">Account No is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Interest percentage</label>
+          <input type="text" class="form-control" name="Interestper" formControlName="Interestper"
+            [ngClass]="{ 'is-invalid': submitted && f.Interestper.errors }">
+          <div *ngIf="submitted && f.Interestper.errors" class="invalid-feedback">
+            <div *ngIf="f.Interestper.errors.required">Interest percentage is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Interest Given</label>
+          <textarea type="text" class="form-control" name="Interestgiven" formControlName="Interestgiven"
+            [ngClass]="{ 'is-invalid': submitted && f.Interestgiven.errors }"></textarea>
+          <div *ngIf="submitted && f.Interestgiven.errors" class="invalid-feedback">
+            <div *ngIf="f.Interestgiven.errors.required">Interest Given is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Given Date</label>
+          <input nbInput placeholder="Opening Date" type="date" class="form-control" name="Givendate"
+            formControlName="Givendate" [ngClass]="{ 'is-invalid': submitted && f.Givendate.errors }">
+          <div *ngIf="submitted && f.Givendate.errors" class="invalid-feedback">
+            <div *ngIf="f.Givendate.errors.required">date is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Interest Type</label>
+          <input type="text" class="form-control" name="Interesttype" formControlName="Interesttype"
+            [ngClass]="{ 'is-invalid': submitted && f.Interesttype.errors }">
+          <div *ngIf="submitted && f.Interesttype.errors" class="invalid-feedback">
+            <div *ngIf="f.Interesttype.errors.required">Interest Type is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons mt-4">
+        <button nbButton class="appearance-hero status-success" (click)="onSubmit()">Create</button>
+        <button nbButton class="ml-3 status-danger  " (click)="onReset()">Reset</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

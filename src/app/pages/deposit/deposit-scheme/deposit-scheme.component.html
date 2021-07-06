@@ -1,0 +1,28 @@
+<nb-card>
+    <nb-card-header class="schemeHeader">
+        <h5>Deposit Schemes</h5><button nbButton class="float-right appearance-hero status-success"
+            routerLink="deposit-scheme-form">Create
+            Deposit scheme</button>
+    </nb-card-header>
+    <nb-card-body class="example-items-col mt-4 ">
+        <div class="row">
+
+            <div class="col-6" *ngFor="let item of this.schemedata[0]">
+                <nb-card class="scheme-card">
+                    <div class="heading">{{item['scheme_name']}}
+                        <i class="fas fa-edit float-right" (click)="schid(item['_id'])"></i>
+                    </div>
+                    <div class="subHeading">{{item['Deposittype']}}</div>
+                </nb-card>
+            </div>
+            <!-- <div class="col-6">
+                <nb-card class="branch-card">
+                    <h1>deposit scheme <a routerLink="update-deposit-scheme"><i class="fas fa-edit float-right"
+                                style="font-size: 17px;"></i></a></h1>
+                </nb-card>
+            </div> -->
+
+        </div>
+
+    </nb-card-body>
+</nb-card>

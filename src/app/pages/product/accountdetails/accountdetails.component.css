@@ -1,0 +1,53 @@
+/*Resize the wrap to see the search bar change!*/
+.Iconic {
+  float: right;
+}
+
+.searcher {
+  width: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #414040;
+}
+
+.searcherTerm {
+  width: 100%;
+  border: 1px solid #f3f3f3;
+  border-right: none;
+  padding: 15px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #00ff88;
+}
+
+.searcherTerm:focus {
+  color: #0081cc;
+}
+
+.searcherButton {
+  width: 40px;
+  height: 32px;
+  border: 2px solid #fff;
+  background: #f3f3f3;
+  text-align: center;
+  color: #696cf7;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.wrapp {
+  width: 55%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 3%;
+  left: 70%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+/*# sourceMappingURL=accountdetails.component.css.map */

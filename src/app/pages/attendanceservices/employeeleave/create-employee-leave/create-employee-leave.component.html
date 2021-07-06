@@ -1,0 +1,77 @@
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <h6>Create Employee Leave<button type="button" class="close" aria-label="Close" (click)="viewEmployeeLeave()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <br>
+        <form [formGroup] = "createEmployeeLeave">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required">Employee Name</label>
+                    
+                    <select class="form-control" name="employeeName" formControlName="employeeName"
+                    [ngClass]="{ 'is-invalid': submitted && f.employeeName.errors }" required>
+                        <option value="" selected disabled hidden>Choose Employee Name</option>
+                        <option value="1">ASX1234</option>
+                        <option value="1">ASX4321</option>
+                    </select>
+                    <div *ngIf="submitted && f.employeeName.errors" class="invalid-feedback">
+                        <div *ngIf="f.employeeName.errors.required">Employee Name is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required">Leave Name</label>
+                    <select class="form-control" formControlName="leaveName" name="leaveName"
+                    [ngClass]="{ 'is-invalid': submitted && f.leaveName.errors }" required>
+                        <option value="" selected disabled hidden>Choose Leave Name</option>
+                        <option value="1">ASX1234</option>
+                        <option value="1">ASX4321</option>
+                    </select>
+                    <div *ngIf="submitted && f.leaveName.errors" class="invalid-feedback">
+                        <div *ngIf="f.leaveName.errors.required">Leave Name is required</div>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="row">
+                <div class="col">
+                    <label class="required">Leave Start</label>
+                    <input type="date" class="form-control" name="leaveStart" formControlName="leaveStart"
+                    [ngClass]="{ 'is-invalid': submitted && f.leaveStart.errors }" required>
+                    <div *ngIf="submitted && f.leaveStart.errors" class="invalid-feedback">
+                        <div *ngIf="f.leaveStart.errors.required">Leave Start is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required">Leave End</label>
+                    <input type="date" class="form-control" name="leaveEnd" formControlName="leaveEnd"
+                    [ngClass]="{ 'is-invalid': submitted && f.leaveEnd.errors }" required>
+                    <div *ngIf="submitted && f.leaveEnd.errors" class="invalid-feedback">
+                        <div *ngIf="f.leaveEnd.errors.required">Leave End is required</div>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="required">Remaining Leave</label>
+                    <input type="number" class="form-control" name="remainingLeave" formControlName="remainingLeave"
+                    [ngClass]="{ 'is-invalid': submitted && f.remainingLeave.errors }" required>
+                    <div *ngIf="submitted && f.remainingLeave.errors" class="invalid-feedback">
+                        <div *ngIf="f.remainingLeave.errors.required">Remaining Leave is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="buttons mt-4">
+                    <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Submit</button>
+                    <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                    <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewEmployeeLeave()">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

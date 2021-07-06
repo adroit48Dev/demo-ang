@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+}
+h5.card-title {
+  display: inline;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  button {
+    margin: 10px;
+    width: 100px;
+  }
+  .btn-info {
+    background-color: #ffbf00;
+    border-color: #ffbf00;
+  }
+  .btn-info:hover {
+    background-color: #e6b219;
+    border-color: #e6b219;
+  }
+}
+.color-green {
+  color: green;
+}
+
+.color-blue {
+  color: #e6b219;
+}
+
+.color-red {
+  color: red;
+}

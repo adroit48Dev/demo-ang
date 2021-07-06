@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "conditionname": "rent allowance",
+        "conditionone": "option1",
+        "conditiontwo": "option2"
+    },
+    {
+        "id": 2,
+        "conditionname": "food allowance",
+        "conditionone": "option1",
+        "conditiontwo": "option2"
+    }
+]

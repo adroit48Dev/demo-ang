@@ -1,0 +1,27 @@
+<nb-card>
+  <nb-card-header class="accountHeader">
+    <h5>Special Holiday</h5>
+    <button nbButton (click)="createSpecialHoliday()" class="float-right appearance-hero status-success">Create
+      Special Holiday</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+      <div class="col-6" *ngFor="let data of specialHolidayData">
+        <nb-card class="Account-card" *ngIf="data['_id']">
+          <div class="row">
+            <div class="col-6">
+              <div class="heading">Days In Month </div>
+              <div class="subHeading">Year </div>
+            </div>
+            <div class="col-6">
+              <div class="heading">{{data['days_in_month']}} Days
+                <a (click)="updateSpecialHoliday(data['_id'])"> <i class="fas fa-edit float-right buttonHover"></i></a>
+              </div>
+              <div class="subHeading">{{data['year']}}</div>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

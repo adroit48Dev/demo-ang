@@ -1,0 +1,134 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<nav class="navbar navbar-light justify-content-between">
+  <img src="assets/images/Danfishel-logo.png" class="circle2" width="150">
+  <div class="log">
+    <a routerLink="/login" routerLinkActive="active">
+      <i class="fa fa-user">
+        Login</i></a>
+  </div>
+</nav>
+
+<section class="registration-page">
+  <div class="row">
+    <div class="container col-md-8">
+      <ngb-carousel>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="assets/images/camera1.jpg" class="d-block w-100" alt="first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>First Slide</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="assets/images/camera2.jpg" class="d-block w-100" alt="second slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>Second Slide</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+
+    </div>
+    <div class="container col-md-3 registers">
+      <form [formGroup]="bankRegisterForm">
+        <div>
+
+          <h3> Register your Bank </h3>
+          <small id="emailHelp" class="form-text text-muted">Your details will never be shared with anyone.</small>
+          <hr>
+
+          <div class="form-group">
+            <label class="required">Bank Name</label>
+            <input type="text" class="form-control" name="bankname" formControlName="bankname"
+              [ngClass]="{ 'is-invalid': submitted && f.bankname.errors }">
+            <div *ngIf="submitted && f.bankname.errors" class="invalid-feedback">
+              <div *ngIf="f.bankname.errors.required">Bank Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">PAN Number</label>
+            <input type="email" class="form-control" name="pannumber" formControlName="pannumber"
+              [ngClass]="{ 'is-invalid': submitted && f.pannumber.errors }">
+            <div *ngIf="submitted && f.pannumber.errors" class="invalid-feedback">
+              <div *ngIf="f.pannumber.errors.required">PAN No is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">Licence Number</label>
+            <input type="text" class="form-control" name="licensenumber" formControlName="licensenumber"
+              [ngClass]="{ 'is-invalid': submitted && f.licensenumber.errors }">
+            <div *ngIf="submitted && f.licensenumber.errors" class="invalid-feedback">
+              <div *ngIf="f.licensenumber.errors.required">Lincense No is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">Mobile Number</label>
+            <input type="text" class="form-control" name="mobileno" formControlName="mobileno"
+              [ngClass]="{ 'is-invalid': submitted && f.mobileno.errors }">
+            <div *ngIf="submitted && f.mobileno.errors" class="invalid-feedback">
+              <div *ngIf="f.mobileno.errors.required">Mobile No is required</div>
+              <div *ngIf="f.mobileno.errors.pattern">Phone number must be a valid</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">SSI Number</label>
+            <input type="text" class="form-control" name="ssinumber" formControlName="ssinumber"
+              [ngClass]="{ 'is-invalid': submitted && f.ssinumber.errors }">
+            <div *ngIf="submitted && f.ssinumber.errors" class="invalid-feedback">
+              <div *ngIf="f.ssinumber.errors.required">SSI NO is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">GST Number</label>
+            <input type="text" class="form-control" name="gstnumber" formControlName="gstnumber"
+              [ngClass]="{ 'is-invalid': submitted && f.gstnumber.errors }">
+            <div *ngIf="submitted && f.gstnumber.errors" class="invalid-feedback">
+              <div *ngIf="f.gstnumber.errors.required">Gst No is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">TIN Number</label>
+            <input type="text" class="form-control" name="tinnumber" formControlName="tinnumber"
+              [ngClass]="{ 'is-invalid': submitted && f.tinnumber.errors }">
+            <div *ngIf="submitted && f.tinnumber.errors" class="invalid-feedback">
+              <div *ngIf="f.tinnumber.errors.required">TIN No is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">E-mail</label>
+            <input type="email" class="form-control" name="email" formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">E-mail is required</div>
+              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="required">Registerd Account</label>
+            <input type="text" class="form-control" name="registeredaccountid" formControlName="registeredaccountid"
+              [ngClass]="{ 'is-invalid': submitted && f.registeredaccountid.errors }">
+            <div *ngIf="submitted && f.registeredaccountid.errors" class="invalid-feedback">
+              <div *ngIf="f.registeredaccountid.errors.required">Registered Account-ID is required</div>
+            </div>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="acceptform" formControlName="acceptform"
+              [ngClass]="{ 'is-invalid': submitted && f.acceptform.errors }">
+            <label class="form-check-label required" for="">Please agree to our Terms & Conditions</label>
+
+          </div>
+
+          <button class="btn prime w-100" (click)="onSubmit()">Submit</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Deposit Information and Withdrawal</h4>
+                <hr>
+                <br>
+                <div class="info" [(ngModel)]="infodata" ngDefaultControl>
+                    <label class="card-title">Review Your  deposit details</label>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Account Number</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>{{infodata[0]['Deposit_number']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Deposit Type</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>{{infodata[0]['Deposit_type']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Deposit Amount</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>Rs.{{infodata[0]['Amount']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Maturity Amount</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>{{infodata[0]['Maturity_Amount']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Tenure Period</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>{{infodata[0]['Maturity_period']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Nominee Name</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>{{infodata[0]['Nominee_name']}}</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Nominee Relationship</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>{{infodata[0]['Nominee_type']}}</label>
+                        </div>
+                    </div>                                
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="mb-0">Interest Amount</label>
+                        </div>
+                        <div class="col-sm-9 ">
+                            <label>{{infodata[0]['maturity_interest_amount']}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

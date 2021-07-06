@@ -1,0 +1,89 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<nav class="navbar navbar-light justify-content-between">
+    <img src="assets/images/Danfishel-logo.png" class="circle2" width="150">
+    <div class="register">
+        <a routerLink="/register" routerLinkActive="active">
+            <i class="fa fa-user">
+                sign-up</i></a>
+    </div>
+</nav>
+
+<section class="loginContainer">
+    <div class="row">
+        <div class="col-md-8">
+            <ngb-carousel [interval]="3000">
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/images/camera1.jpg" class="d-block w-100" alt="first slide">
+                    </div>
+                    <div class="carousel-caption">
+                        <h3>First Slide</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="assets/images/camera2.jpg" class="d-block w-100" alt="second slide">
+                    </div>
+                    <div class="carousel-caption">
+                        <h3>Second Slide</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+
+        <div class="col-md-4 login-form">
+            <div>
+                <h3>Sign-In</h3>
+                <hr class="signborder">
+            </div>
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="username">User Name</label>
+                        <input type="text" formControlName="username" name="username" class="form-control" id="username"
+                            [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="password">Password</label>
+                        <input type="password" formControlName="password" name="password" class="form-control"
+                            id="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="form-row mt-2">
+                  <div class="form-group col-6">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <label class="form-check-label" for="inlineCheckbox1">Remember Me</label>
+                    </div>
+                  </div>
+                  <div class="form-group col-6 text-right">
+                    <a href="#" class="text-link">Forgot Password</a>
+                  </div>
+                </div> -->
+                <div class="form-row mt-3" *ngIf="ErrorCard">
+                    <span style="color: red;">There was an error trying to authenticate user</span>
+                </div>
+                <div class="form-row mt-3">
+                    <button [disabled]="loading" class="btn btn-block btn-submit">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

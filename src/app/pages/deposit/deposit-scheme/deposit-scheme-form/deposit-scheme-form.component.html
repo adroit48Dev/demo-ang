@@ -1,0 +1,129 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">Deposit Scheme Creation<button type="button" class="close" aria-label="Close"
+                (click)="viewScheme()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <hr>
+        <form class="forms-sample" [formGroup]="schemeForm">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label" for="scheme-name">Scheme Name</label>
+                        <input type="text" class="form-control" id="scheme-name" formControlName="scheme_name"
+                            [ngClass]="{ 'is-invalid': submitted&&f.scheme_name.errors}">
+                        <div *ngIf="submitted&&f.scheme_name.errors" class="invalid-feedback">
+                            <div>scheme name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label" for="min_Period">Minimum Period</label>
+                        <input type="number" class="form-control" id="min_Period" formControlName="min_Period"
+                            [ngClass]="{ 'is-invalid': submitted&&f.min_Period.errors}">
+                        <div *ngIf="submitted&&f.min_Period.errors" class="invalid-feedback">
+                            <div>minimum period is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label" for="maximum-period">Maximum Period</label>
+                        <input type="number" class="form-control" id="maximum-period" formControlName="max_Period"
+                            [ngClass]="{ 'is-invalid': submitted&&f.max_Period.errors}">
+                        <div *ngIf="submitted&&f.max_Period.errors" class="invalid-feedback">
+                            <div>maximum period is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label" for="maximum-period">Minimum Amount</label>
+                        <input type="number" class="form-control" id="min-amount" formControlName="min_amount"
+                            [ngClass]="{ 'is-invalid': submitted&&f.min_amount.errors}">
+                        <div *ngIf="submitted&&f.min_amount.errors" class="invalid-feedback">
+                            <div>minimum amount is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label" for="maximum-period">Maximum Amount</label>
+                        <input type="number" class="form-control" id="maximum-period" formControlName="max_amount"
+                            [ngClass]="{ 'is-invalid': submitted&&f.max_amount.errors}">
+                        <div *ngIf="submitted&&f.max_amount.errors" class="invalid-feedback">
+                            <div>maximum amount is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label" for="annual-income">Interest</label>
+                        <input type="number" class="form-control" id="interest" formControlName="interest"
+                            [ngClass]="{ 'is-invalid': submitted&&f.interest.errors}">
+                        <div *ngIf="submitted&&f.interest.errors" class="invalid-feedback">
+                            <div>interest is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label" for="scheme-peroid">Scheme Period</label>
+                        <input type="number" class="form-control" id="scheme-peroid" formControlName="scheme_period"
+                            [ngClass]="{ 'is-invalid': submitted&&f.scheme_period.errors}">
+                        <div *ngIf="submitted&&f.scheme_period.errors" class="invalid-feedback">
+                            <div>scheme period is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label" for="deposit-type">Deposit Type</label>
+                        <select class="form-control" id="deposit-type" formControlName="deposittype"
+                            [ngClass]="{ 'is-invalid': submitted&&f.deposittype.errors}">
+                            <option value="fixed-deposit">fixed deposit</option>
+                            <option value="recurring-deposit">recurring deposit</option>
+                        </select>
+                        <div *ngIf="submitted&&f.deposittype.errors" class="invalid-feedback">
+                            <div>deposit type is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label" for="scheme-peroid">Condition</label>
+                        <ng-multiselect-dropdown formControlName="selectedItems"
+                            [ngClass]="{ 'is-invalid': submitted&&f.selectedItems.errors}"
+                            [placeholder]="'Select Branch'" [settings]="dropdownSettings" [data]="dropdownList[0]"
+                            [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                            (onSelectAll)="onSelectAll($event)">
+                        </ng-multiselect-dropdown>
+                        <div *ngIf="submitted&&f.selectedItems.errors" class="invalid-feedback">
+                            <div>condition id is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label" for="scheme-peroid">Product Type</label>
+                        <select class="form-control" id="Product-type" formControlName="producttype"
+                            placeholder="select Product Type"
+                            [ngClass]="{ 'is-invalid': submitted&&f.producttype.errors}">
+                            <option *ngFor="let option of productlist[0]" value="{{option['product_name']}}">
+                                {{option.product_name}}</option>
+                        </select>
+                        <div *ngIf="submitted&&f.producttype.errors" class="invalid-feedback">
+                            <div>condition id is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons mt-4">
+                    <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Submit</button>
+                    <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                    <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewScheme()">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

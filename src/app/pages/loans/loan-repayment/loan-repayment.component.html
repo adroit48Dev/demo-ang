@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Loan Repayment</h5>
+                <hr>
+                <div class="account-status">
+                    <div class="filter">
+                        <input class="form-control" (keyup)="applyFilter($event.target.value)"
+                            placeholder="Search Anything" #input>
+                    </div>
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-4">
+                        <ng-container matColumnDef="AccountNumber">
+                            <th mat-header-cell *matHeaderCellDef> Account Number </th>
+                            <td mat-cell *matCellDef="let element"> {{element.AccountNumber}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="LoanAmount">
+                            <th mat-header-cell *matHeaderCellDef> Loan Amount </th>
+                            <td mat-cell *matCellDef="let element"> {{element.LoanAmount}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="PaidAmount">
+                            <th mat-header-cell *matHeaderCellDef> Paid Amount </th>
+                            <td mat-cell *matCellDef="let element"> {{element.PaidAmount}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="RepaymentAmount">
+                            <th mat-header-cell *matHeaderCellDef> Repayment Amount </th>
+                            <td mat-cell *matCellDef="let element"> {{element.RepaymentAmount}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="tenure">
+                            <th mat-header-cell *matHeaderCellDef> Tenure (years) </th>
+                            <td mat-cell *matCellDef="let element"> {{element.tenure}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Action">
+                            <th mat-header-cell *matHeaderCellDef> Action </th>
+                            <td mat-cell *matCellDef="let element">
+                                <button class="btn btn-primary btn-sm" (click)='details()'>Details</button>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

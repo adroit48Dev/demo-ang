@@ -1,0 +1,30 @@
+<nb-card>
+  <nb-card-header class="accountHeader">
+    <h5>Default Holiday</h5>
+    <button nbButton (click)="createDefaultHoliday()" class="float-right appearance-hero status-success">Create Default
+      Holiday</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+      <div class="col-6" *ngFor="let data of defaultHolidayData">
+        <nb-card class="Account-card" *ngIf="data._id">
+          <div class="row">
+            <div class="col-5">
+              <div class="heading">Day Of Week </div>
+              <div class="subHeading">Month </div>
+              <div class="subHeading">Year </div>
+            </div>
+            <div class="col-7">
+              <div class="heading">{{data.day_of_week}}
+                <!-- <a (click)="updateSpecialHoliday(data['_id'])"> <i class="fas fa-edit float-right buttonHover"></i></a> -->
+              </div>
+              <div class="subHeading">{{data.month}}</div>
+              <div>{{data.year}}</div>
+            </div>
+
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

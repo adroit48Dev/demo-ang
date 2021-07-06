@@ -1,0 +1,89 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">Update Deposit Condition<button type="button" class="close" aria-label="Close"
+                (click)="viewCondition()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <br>
+        <form class="forms-sample" [formGroup]="conditionForm" *ngFor="let cdata of conditiondata">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label" for="user-id">Condition Name</label>
+                        <input type="text" class="form-control" id="condition-name" formControlName="Condition_name"
+                            [ngClass]="{ 'is-invalid': submitted&&f.Condition_name.errors}"
+                            ngModel="{{ cdata.Condition_name }}">
+                        <div *ngIf="submitted&&f.Condition_name.errors" class="invalid-feedback">
+                            <div>condition name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label" for="condition-amount">Condition Amount</label>
+                        <input type="number" class="form-control" id="condition-amount"
+                            formControlName="Condition_amount"
+                            [ngClass]="{ 'is-invalid': submitted&&f.Condition_amount.errors}"
+                            ngModel="{{ cdata.Condition_amount }}">
+                        <div *ngIf="submitted&&f.Condition_amount.errors" class="invalid-feedback">
+                            <div>condition amount is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label" for="condition-rate">Condition Rate</label>
+                        <input type="number" class="form-control" id="condition-rate" formControlName="Condition_rate"
+                            [ngClass]="{ 'is-invalid': submitted&&f.Condition_rate.errors}"
+                            ngModel="{{ cdata.Condition_rate }}">
+                        <div *ngIf="submitted&&f.Condition_rate.errors" class="invalid-feedback">
+                            <div>condition rate is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label" for="condition-period">Condition Minimum Period</label>
+                        <input type="number" class="form-control" id="condition-min-period"
+                            formControlName="Condition_min_period"
+                            [ngClass]="{ 'is-invalid': submitted&&f.Condition_min_period.errors}"
+                            ngModel="{{ cdata.Condition_min_period }}">
+                        <div *ngIf="submitted&&f.Condition_min_period.errors" class="invalid-feedback">
+                            <div>condition minimum period is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label" for="condition-period">Condition Maximum Period</label>
+                        <input type="number" class="form-control" id="condition-max-period"
+                            formControlName="Condition_max_period"
+                            [ngClass]="{ 'is-invalid': submitted&&f.Condition_max_period.errors}"
+                            ngModel="{{ cdata.Condition_max_period }}">
+                        <div *ngIf="submitted&&f.Condition_max_period.errors" class="invalid-feedback">
+                            <div>condition maximum period is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label" for="condition-detail">Condition Detail</label>
+                        <input type="text" class="form-control" id="condition-detail" formControlName="Condition_detail"
+                            [ngClass]="{ 'is-invalid': submitted&&f.Condition_detail.errors}"
+                            ngModel="{{ cdata.Condition_detail }}">
+                        <div *ngIf="submitted&&f.Condition_detail.errors" class="invalid-feedback">
+                            <div>condition detail is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons mt-4">
+                    <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Update</button>
+                    <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                    <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewCondition()">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

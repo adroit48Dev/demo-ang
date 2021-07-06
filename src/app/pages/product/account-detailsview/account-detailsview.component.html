@@ -1,0 +1,35 @@
+<nb-card>
+  <nb-card-header class="accountHeader">
+    <h5>Account Details</h5><a routerLink="/pages/product/accountdetails">
+      <button nbButton class="float-right appearance-hero status-success" (click)="CreateAccount()">Create
+        Account</button></a>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+
+      <div class="col-6" *ngFor="let data of AccountData">
+        <nb-card class="Account-card">
+          <div class="row">
+            <div class="col-6">
+              <div class=" heading">Account Name </div>
+              <div class=" subHeading">Account Type </div>
+              <div class="subHeading">Branch Name </div>
+            </div>
+
+            <div class="col-6">
+              <div class="heading">{{ data.accountName }}
+                <a><i class="fas fa-edit float-right buttonHover" (click)="accountdetailsid(data._id)"></i></a>
+              </div>
+              <div class="subHeading">{{ data.accType }}</div>
+              <div class="subHeading">{{ data.branchName }}</div>
+            </div>
+          </div>
+
+        </nb-card>
+      </div>
+
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<!-- update path= /pages/product/accountdetailsupdate -->

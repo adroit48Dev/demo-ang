@@ -1,0 +1,119 @@
+
+
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <h6>Update Employee Role<button type="button" class="close" aria-label="Close" (click)="viewEmployeeRole()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <hr>
+        <form [formGroup]="employeeRoleForm" *ngFor="let data of empRoleData">
+            <h6>Accessible Services</h6>
+            {{ data.create }}
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label class="required">Create</label><br>
+                            <select class="form-control" name="can_create" formControlName="can_create"
+                                [ngClass]="{ 'is-invalid': submitted && f.can_create.errors }" ngModel="{{data.can_create}}">
+                                <!-- <option value="" selected disabled hidden>Choose Your Option</option> -->
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                            <div *ngIf="submitted && f.can_create.errors" class="invalid-feedback">
+                                <div *ngIf="f.can_create.errors.required">Create option is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label class="required">Edit</label><br>
+                            <select class="form-control" name="can_edit" formControlName="can_edit"
+                                [ngClass]="{ 'is-invalid': submitted && f.can_edit.errors }" ngModel="{{data.can_edit}}">
+                                <!-- <option value="" selected disabled hidden>Choose Your Option</option> -->
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                            <div *ngIf="submitted && f.can_edit.errors" class="invalid-feedback">
+                                <div *ngIf="f.can_edit.errors.required">edit option is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label class="required">View</label><br>
+                            <select class="form-control" name="can_view" formControlName="can_view"
+                                [ngClass]="{ 'is-invalid': submitted && f.can_view.errors }" ngModel="{{data.can_view}}">
+                                <!-- <option value="" selected disabled hidden>Choose Your Option</option> -->
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                            <div *ngIf="submitted && f.can_view.errors" class="invalid-feedback">
+                                <div *ngIf="f.can_view.errors.required">view Option is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <label class="required">Delete</label><br>
+                            <select class="form-control" name="can_delete" formControlName="can_delete"
+                                [ngClass]="{ 'is-invalid': submitted && f.can_delete.errors }" ngModel="{{data.can_delete}}">
+                                <!-- <option value="" selected disabled hidden>Choose Your Option</option> -->
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                            <div *ngIf="submitted && f.can_delete.errors" class="invalid-feedback">
+                                <div *ngIf="f.can_delete.errors.required">delete Option is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required">Restrict Login Count</label>
+                    <input type="number" class="form-control" name="restrict_login_count"
+                        formControlName="restrict_login_count"
+                        [ngClass]="{ 'is-invalid': submitted && f.restrict_login_count.errors }"
+                        ngModel="{{data.restrict_login_count}}">
+                    <div *ngIf="submitted && f.restrict_login_count.errors" class="invalid-feedback">
+                        <div *ngIf="f.restrict_login_count.errors.required">login count restriction is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required">Access Service ID</label>
+                    <select class="form-control" name="can_access_service_id" formControlName="can_access_service_id"
+                        [ngClass]="{ 'is-invalid': submitted && f.can_access_service_id.errors }"
+                        ngModel="{{data.can_access_service_id}}">
+                        <!-- <option value="" selected disabled hidden>Choose Your Option</option> -->
+                        <option value="True">Yes</option>
+                        <option value="False">No</option>
+                    </select>
+                    <div *ngIf="submitted && f.can_access_service_id.errors" class="invalid-feedback">
+                        <div *ngIf="f.can_access_service_id.errors.required">access service id is required</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="buttons mt-4">
+                <div class="buttons mt-4">
+                    <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Update</button>
+                    <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                    <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewEmployeeRole()">
+                        Back
+                    </button>
+                </div>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

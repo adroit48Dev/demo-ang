@@ -1,0 +1,18 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">  
+        <label>show entries</label>&nbsp;
+        <select selected="1" class="form-control w-25">
+            <option value="1">10</option>
+            <option value="2">25</option>
+          </select> &nbsp;
+        <input #search class="form-control search w-25" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+          
+        <!-- <a routerLink="/createprofile"><button nbButton class="create-btn">create</button></a> -->
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>

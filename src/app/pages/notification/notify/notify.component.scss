@@ -1,0 +1,14 @@
+.save{
+    margin-right: 11px;
+}
+.update{
+    margin-right: 12px;
+}
+
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .accordion-container:first-child {
+    margin-bottom: nb-theme(card-margin-bottom);
+  }
+}

@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "rolename": "clerk",
+        "create": "Yes",
+        "edit": "No",
+        "view": "No",
+        "delete": "Yes",
+        "access_service_id": 3245,
+        "restrict_logincount": 3,
+        "transaction_limit_id": 12221
+    },
+    {
+        "id": 2,
+        "rolename": "cashier",
+        "create": "Yes",
+        "edit": "No",
+        "view": "Yes",
+        "delete": "No",
+        "access_service_id": 1234,
+        "restrict_logincount": 5,
+        "transaction_limit_id": 65656
+    }
+]

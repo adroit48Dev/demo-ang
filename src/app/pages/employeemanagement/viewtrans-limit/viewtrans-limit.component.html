@@ -1,0 +1,28 @@
+
+<nb-card>
+  <nb-card-header class="accountHeader">
+    <h5>Transaction Limit</h5><button nbButton (click)="createTransLimit()"
+      class="float-right appearance-hero status-success">Create Transaction Limit</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+      <div class="col-6" *ngFor="let transDtail of transDetails">
+        <nb-card class="Account-card">
+          <div class="row">
+            <div class="col-5">
+              <div class="heading">Condition Name </div>
+              <div class="subHeading">Condition 1 </div>
+              <div class="subHeading">Condition 2 </div>
+            </div>
+            <div class="col-7">
+              <div class="heading">{{transDtail.condition_name}} <a (click)="updateTransLimit(transDtail._id)"><i
+                    class="fas fa-edit float-right"></i></a></div>
+              <div class="subHeading">{{transDtail.condition_one}}</div>
+              <div class="subHeading">{{ transDtail.condition_two }}</div>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

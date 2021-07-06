@@ -1,0 +1,26 @@
+[
+
+    {
+        "id":2,
+        "branchname":"Velachery",
+        "productname":"Product1",
+        "interestname":"New Interest",
+        "interestrate":20,
+        "interestperc":20,
+        "interestcondition":"New condition",
+        "interestconditionba":"Interest Condition on tenure",
+        "interestdesc":"New Interest Description"
+     },
+
+    {
+        "id":12,
+        "branchname":"Bangalore",
+        "productname":"Product2",
+        "interestname":"New Interest 1",
+        "interestrate":25,
+        "interestperc":25,
+        "interestcondition":"New condition 1",
+        "interestconditionba":"Interest Condition on tenure 1",
+        "interestdesc":"New Interest Description 1"
+     }
+]

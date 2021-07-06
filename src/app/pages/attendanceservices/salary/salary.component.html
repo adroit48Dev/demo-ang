@@ -1,0 +1,30 @@
+<nb-card>
+  <nb-card-header class="accountHeader">
+    <h5>Salary List</h5>
+    <button nbButton (click)="createSalary()" class="float-right appearance-hero status-success">Create
+      Salary</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div *ngIf="noData" class="col noData">No Data</div>
+    <div *ngIf="session" class="col noData">Session Expired</div>
+    <div class="row" *ngIf="!noData">
+      <div class="col-6" *ngFor="let item of salaryData">
+        <nb-card class="Account-card" *ngIf="item['_id']">
+          <div class="row">
+            <div class="col-6">
+              <div class="heading">Employee Name</div>
+              <div class="subHeading">Salary </div>
+              <div class="subHeading">Number of Leave </div>
+            </div>
+            <div class="col-6">
+              <div class="heading">{{item['emp_name']}}<a (click)="updateSalary(item['emp_id'])"><i
+                    class="fas fa-edit float-right"></i></a></div>
+              <div class="subHeading">Rs. {{item['assigned_salary']}}</div>
+              <div class="subHeading">{{item['no_of_leave']}} Days</div>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

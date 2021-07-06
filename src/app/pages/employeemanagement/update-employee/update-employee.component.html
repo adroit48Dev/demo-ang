@@ -1,0 +1,119 @@
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <h6>Employee Registration Form<button type="button" class="close" aria-label="Close" (click)="viewEmployee()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <hr>
+        <form [formGroup]="employeeUpdateForm" *ngFor="let employeeData of EmployeeData">
+            <div class="row">
+                <div class="col">
+                    <label class="required label">Email ID</label>
+                    <input type="email" class="form-control" name="email" formControlName="email"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" ngModel="{{ employeeData.email }}">
+                    <div *ngIf=" submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">E-mail is required</div>
+                        <div *ngIf="f.email.errors.pattern">E-mail must be a valid</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required label">Mobile Number 1</label>
+                    <input type="text" class="form-control" name="mobileno1" formControlName="mobileno1"
+                        [ngClass]="{ 'is-invalid': submitted && f.mobileno1.errors } "
+                        ngModel="{{ employeeData.mobileno1 }}">
+                    <div *ngIf="submitted && f.mobileno1.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobileno1.errors.required">Mobile Number-1 is required</div>
+                        <div *ngIf="f.mobileno1.errors.pattern">Mobile Number must be a valid</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="label">Mobile Number 2</label>
+                    <input type="tel" class="form-control " name="mobileno2" formControlName="mobileno2"
+                        [ngClass]="{ 'is-invalid': submitted && f.mobileno2.errors }"
+                        ngModel="{{ employeeData.mobileno2 }}">
+                    <div *ngIf="submitted && f.mobileno2.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobileno2.errors.pattern">Mobile Number-2 must be a valid</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required label">Designation</label>
+                    <select class="form-control" name="designation" formControlName="designation"
+                        [ngClass]="{ 'is-invalid': submitted && f.designation.errors }"
+                        ngModel="{{ employeeData.designation }}">
+                        <option value="" selected disabled hidden>Choose Your Designation</option>
+                        <option>Operations</option>
+                        <option>HR</option>
+                        <option>Executive</option>
+                        <option>Teller</option>
+                        <option>Asst.Manager</option>
+                        <option>Manager</option>
+                    </select>
+                    <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+                        <div *ngIf="f.designation.errors.required">Designation is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required label">Area</label>
+                    <input type="text" class="form-control" name="area" formControlName="area"
+                        [ngClass]="{ 'is-invalid': submitted && f.area.errors }" ngModel="{{ employeeData.area }}">
+                    <div *ngIf="submitted && f.area.errors" class="invalid-feedback">
+                        <div *ngIf="f.area.errors.required">Area is required</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required label">City</label>
+                    <input type="text" class="form-control" name="city" formControlName="city"
+                        [ngClass]="{ 'is-invalid': submitted && f.city.errors }" ngModel="{{ employeeData.city }}">
+                    <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                        <div *ngIf="f.city.errors.required">City is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required label">District</label>
+                    <input type="text" class="form-control" name="district" formControlName="district"
+                        [ngClass]="{ 'is-invalid': submitted && f.district.errors }"
+                        ngModel="{{ employeeData.district }}">
+                    <div *ngIf="submitted && f.district.errors" class="invalid-feedback">
+                        <div *ngIf="f.district.errors.required">District is required</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required label">State</label>
+                    <input type="text" class="form-control" name="state" formControlName="state"
+                        [ngClass]="{ 'is-invalid': submitted && f.state.errors }" ngModel="{{ employeeData.state }}">
+                    <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                        <div *ngIf="f.state.errors.required">State is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required label">Pin Code</label>
+                    <input type="number" class="form-control" name="pincode" formControlName="pincode"
+                        [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }"
+                        ngModel="{{ employeeData.pincode }}">
+                    <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback">
+                        <div *ngIf="f.pincode.errors.required">Pincode is required</div>
+                        <div *ngIf="f.pincode.errors.pattern">Pincode must be a valid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons mt-4">
+                <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Submit</button>
+                <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewEmployee()">
+                    Back
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

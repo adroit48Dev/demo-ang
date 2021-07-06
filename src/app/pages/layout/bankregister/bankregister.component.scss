@@ -1,0 +1,96 @@
+:host ::ng-deep nb-stepper .step-content {
+    text-align: center;
+  
+    button {
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+  }
+  
+  .search {
+    width: 100%;
+    position: absolute;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 1px solid #f3f3f3;
+    border-right: none;
+    padding: 15px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #00ff88;
+  }
+  
+  .searchTerm:focus{
+    color: #0081cc;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 32px; 
+    border: 2px solid #fff;
+    background: #f3f3f3;
+    text-align: center;
+    color: #696cf7;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  /*Resize the wrap to see the search bar change!*/
+  .wrap{
+    width: 55%;
+    position: absolute;
+    display: flex;
+    top: 2%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .steppers{
+    top: 10%;
+  }
+  
+  
+  .activepng{
+    display: flex;
+    position: absolute;
+    left: 105%;
+    top: 20%;
+  .onlineIcon{
+    overflow: hidden;
+    margin: 10px;
+    // margin-top: 15%;
+    // margin-left: 40%;
+    }
+  }
+  
+  
+  .holdpng{
+    display: flex;
+    position: absolute;
+    left: 125%;
+    top: 20%;
+  .onlineIcon{
+    overflow: hidden;
+    margin: 10px;
+     
+    }
+  }
+  
+  .inactivepng{
+    display: flex;
+    position: absolute;
+    left: 150%;
+    top: 20%;
+  .onlineIcon{
+      
+    overflow: hidden;
+    margin: 10px;
+      
+    }
+  }
+  

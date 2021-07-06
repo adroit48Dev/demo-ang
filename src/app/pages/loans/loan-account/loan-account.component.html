@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Loan Application</h5><button nbButton
+                    class="float-right appearance-hero status-success" routerLink="loan-acc-creation-form">Create
+                    Loan</button>
+                <hr>
+                <div class="buttons">
+                    <button class="btn btn-primary btn-sm">All</button>
+                    <button class="btn btn-success btn-sm">Approved</button>
+                    <button class="btn btn-info btn-sm">Pending</button>
+                    <button class="btn btn-danger btn-sm">Rejected</button>
+                </div>
+                <div class="account-status">
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-4">
+                        <ng-container matColumnDef="loanName">
+                            <th mat-header-cell *matHeaderCellDef> Loan Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.loanName}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="userName">
+                            <th mat-header-cell *matHeaderCellDef> User Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="loanAmount">
+                            <th mat-header-cell *matHeaderCellDef> Loan Amount </th>
+                            <td mat-cell *matCellDef="let element"> {{element.loanAmount}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="tenure">
+                            <th mat-header-cell *matHeaderCellDef> Tenure </th>
+                            <td mat-cell *matCellDef="let element"> {{element.tenure}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="status">
+                            <th mat-header-cell *matHeaderCellDef> Status</th>
+                            <td mat-cell *matCellDef="let element" [ngClass]="{
+                                'color-red': element.status == 'Rejected', 
+                                'color-blue': element.status == 'Pending', 
+                                'color-green': element.status == 'Approved'}">
+                                <span>
+
+                                    {{element.status}}
+
+                                </span>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <h5 class="title">Customers List</h5>
+    <div class="buttons-row float-right">
+      <button nbButton status="warning" style="margin-right: 34px;">
+        Pending
+      </button>
+      <button nbButton status="danger" style="margin-right: 40px;">
+        Rejected
+      </button>
+      <button nbButton status="info">
+        List of all Users
+      </button>
+    </div>
+    <hr>
+ 
+<table datatable [dtOptions]="dtOptions" class="row-border hover" >
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>Branch Name</th>
+      <th>Available Balance</th>
+      <th>Accounts Id</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="persons?.length != 0">
+    <tr *ngFor="let person of persons">
+      <td>{{ person.userId }}</td>
+      <td>{{ person.branchName }}</td>
+      <td>{{ person.availableBalance }}</td>
+      <td>{{ person.accountsId }}</td>
+      <td>{{ person.Status }}</td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="persons?.length == 0">
+    <tr>
+      <td  class="no-data-available">No data!</td>
+    </tr>
+  </tbody>
+</table>
+    
+  </nb-card-body>
+</nb-card>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Content</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="open(ack)">Send</button>
+  </div>
+</ng-template>
+
+<ng-template #ack let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"></h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Content</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Close</button>
+  </div>
+</ng-template>

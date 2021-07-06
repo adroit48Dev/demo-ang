@@ -1,0 +1,98 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <form [formGroup]="UserAccountCharge">
+      <h6>User Account Charge</h6>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <label class="required label">User ID</label>
+          <input type="text" class="form-control" name="userid" formControlName="userid"
+            [ngClass]="{ 'is-invalid': submitted && f.userid.errors }">
+          <div *ngIf="submitted && f.userid.errors" class="invalid-feedback">
+            <div *ngIf="f.userid.errors.required">User ID is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Charges</label>
+          <input type="text" class="form-control" name="charges" formControlName="charges"
+            [ngClass]="{ 'is-invalid': submitted && f.charges.errors }">
+          <div *ngIf="submitted && f.charges.errors" class="invalid-feedback">
+            <div *ngIf="f.charges.errors.required">Charges is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Account No</label>
+          <input type="text" class="form-control" name="accountno" formControlName="accountno"
+            [ngClass]="{ 'is-invalid': submitted && f.accountno.errors }">
+          <div *ngIf="submitted && f.accountno.errors" class="invalid-feedback">
+            <div *ngIf="f.accountno.errors.required">Account No is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Fee ID</label>
+          <input type="text" class="form-control" name="feeid" formControlName="feeid"
+            [ngClass]="{ 'is-invalid': submitted && f.feeid.errors }">
+          <div *ngIf="submitted && f.feeid.errors" class="invalid-feedback">
+            <div *ngIf="f.feeid.errors.required">Fee ID is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Charged Reason</label>
+          <textarea type="text" class="form-control" name="chargedreason" formControlName="chargedreason"
+            [ngClass]="{ 'is-invalid': submitted && f.chargedreason.errors }"></textarea>
+          <div *ngIf="submitted && f.chargedreason.errors" class="invalid-feedback">
+            <div *ngIf="f.chargedreason.errors.required">Charged reason is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Charged Date</label>
+          <input nbInput placeholder="Opening Date" type="date" class="form-control" name="chargeddate"
+            formControlName="chargeddate" [ngClass]="{ 'is-invalid': submitted && f.chargeddate.errors }">
+          <div *ngIf="submitted && f.chargeddate.errors" class="invalid-feedback">
+            <div *ngIf="f.chargeddate.errors.required">Charged date is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Is One Time</label>
+          <input type="text" class="form-control" name="isonetime" formControlName="isonetime"
+            [ngClass]="{ 'is-invalid': submitted && f.isonetime.errors }">
+          <div *ngIf="submitted && f.isonetime.errors" class="invalid-feedback">
+            <div *ngIf="f.isonetime.errors.required"> Is onetime is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">IsFine Charged</label>
+          <input type="text" class="form-control" name="isfinecharged" formControlName="isfinecharged"
+            [ngClass]="{ 'is-invalid': submitted && f.isfinecharged.errors }">
+          <div *ngIf="submitted && f.isfinecharged.errors" class="invalid-feedback">
+            <div *ngIf="f.isfinecharged.errors.required">IsFine charged is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Recurring Time</label>
+          <input type="text" class="form-control" name="recurringtime" formControlName="recurringtime"
+            [ngClass]="{ 'is-invalid': submitted && f.recurringtime.errors }">
+          <div *ngIf="submitted && f.recurringtime.errors" class="invalid-feedback">
+            <div *ngIf="f.recurringtime.errors.required"> Recurring is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons mt-4">
+        <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Create</button>
+        <button nbButton class=" ml-3 status-danger  " (click)="onReset()">Reset</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

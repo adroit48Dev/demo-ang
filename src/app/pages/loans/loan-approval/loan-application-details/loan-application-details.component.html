@@ -1,0 +1,141 @@
+<div class="card">
+    <div class="card-body">
+        <!-- form-preview -->
+        <div class="form-preview">
+            <h5 class="card-title">Loan Application Details<button type="button" class="close" aria-label="Close"
+                    (click)="toBack()">
+                    <span aria-hidden="true">&times;</span>
+                </button></h5>
+            <hr>
+            <nb-tabset>
+                <nb-tab tabTitle="Loan Application Details">
+                    <table>
+                        <tr>
+                            <td>Loan Product</td>
+                            <td>Business Loan</td>
+                        </tr>
+                        <tr>
+                            <td>Interest Type</td>
+                            <td>Variable Rate</td>
+                        </tr>
+                        <tr>
+                            <td>Interest Method</td>
+                            <td>Monthly Reducing Balance</td>
+                        </tr>
+                        <tr>
+                            <td>Tenure</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>Loan Amount</td>
+                            <td>₹12,000</td>
+                        </tr>
+                        <tr>
+                            <td>Interest Rate</td>
+                            <td>5.6%</td>
+                        </tr>
+                        <tr>
+                            <td>Bank Customer</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Bank Account Number</td>
+                            <td>123456651234</td>
+                        </tr>
+                        <tr>
+                            <td>Bank Name</td>
+                            <td>HDFC Bank</td>
+                        </tr>
+                        <tr>
+                            <td>Bank IFSC Code</td>
+                            <td>HDFC2341</td>
+                        </tr>
+                        <tr>
+                            <td>Installment</td>
+                            <td>Monthly</td>
+                        </tr>
+                        <tr>
+                            <td>Repayment Mode</td>
+                            <td>Cash</td>
+                        </tr>
+                        <tr>
+                            <td>Loan Repayment Period</td>
+                            <td>5 years</td>
+                        </tr>
+                        <tr>
+                            <td>Billing Cycle</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Document</td>
+                            <td><a class="document" href="../../../../../assets/pdf/sample.pdf" target="_blank"
+                                    rel="document pdf">payslip</a>
+                                <a class="document" href="../../../../../assets/pdf/sample.pdf" target="_blank"
+                                    rel="document pdf">voter Id</a>
+                            </td>
+                        </tr>
+                        <tr>
+                    </table>
+                </nb-tab>
+                <nb-tab tabTitle="Loan Product Details">
+                    <table>
+                        <tr>
+                            <td>Condition Name 1</td>
+                            <td>first condition</td>
+                        </tr>
+                        <tr>
+                            <td>Condition value 1</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>Condition Type 1</td>
+                            <td>Integer</td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td>Condition Name 2</td>
+                            <td>second condition</td>
+                        </tr>
+                        <tr>
+                            <td>Condition value 2</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Condition Type 2</td>
+                            <td>String</td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td>Condition Name 3</td>
+                            <td>three condition</td>
+                        </tr>
+                        <tr>
+                            <td>Condition value 3</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Condition Type 3</td>
+                            <td>Currency</td>
+                        </tr>
+                    </table>
+                </nb-tab>
+            </nb-tabset>
+
+            <div class="from-group mt-4">
+                <div *ngIf="incomplete" class="form-group incomplete">
+                    <input type="text" placeholder="reason for incompletion" class="form-control">
+                    <button class="btn btn-primary mt-2" (click)="submitOnIncomplete()">Submit</button>
+                </div>
+                <div *ngIf="reject" class="form-group reject">
+                    <input type="text" placeholder="Reason for rejection" class="form-control">
+                    <button class="btn btn-primary mt-2" (click)="submitOnReject()">Submit</button>
+                </div>
+            </div>
+            <div class="button">
+                <button class="btn btn-success" (click)="toApprove()">Approve</button>
+                <button class="btn btn-danger" (click)="toReject()">Reject</button>
+                <button class="btn btn-primary" (click)="toIncomplete()">Incomplete</button>
+            </div>
+        </div>
+    </div>
+</div>

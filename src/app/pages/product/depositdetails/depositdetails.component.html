@@ -1,0 +1,89 @@
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <form>
+          
+            <h6>Deposit Settings</h6>
+            <br>
+            <nb-icon icon="edit-2-outline" class="Iconic"></nb-icon>
+            <div class="wrapp">
+                <div class="searcher">
+                   <input type="text" class="searcherTerm" placeholder="search...">
+                   <button type="submit" class="searcherButton">
+                     <i class="fa fa-search"></i>
+                  </button> 
+                  </div>
+              </div>
+            <br>
+            <div class="form-group">
+                <label>Status</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Active
+                  </label>
+                </div>
+              </div>
+            <br>
+            <div class="row">
+                <div class="col">   
+                    <label>Name</label>
+                    <input type="text" class="form-control ">
+            </div>
+                <div class="col">
+                    <label>Customer ID</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <label>Deposit Acc ID</label>  
+                    <input class="form-control">      
+              </div>
+              <div class="col">
+                <label>Deposit Type</label>
+                    <select class="form-control">
+                        <option>Select</option> 
+                        <option>Fixed Deposit</option>
+                        <option>Recurring Deposit</option>
+                        <option>SIP A/C</option>
+                        <option>Term Deposit</option>
+                        <option>Saving Plan</option>
+                    </select>    
+              </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                  <label>Deposit Amount</label>  
+                  <input class="form-control">
+                </div>
+                <div class="col">
+                  <label>Maturity Amount</label>  
+                  <input class="form-control">
+                </div>
+              </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                 <label>Tenure Period</label>    
+                    <input nbInput [nbDatepicker]="formpicker" class="form-control">
+                    <nb-rangepicker #formpicker></nb-rangepicker>
+            </div>
+            <div class="col">
+                <label>Investment Goal</label>
+                <input nbInput  [nbDatepicker]="formpicker" class="form-control">
+                <nb-rangepicker #formpicker></nb-rangepicker>
+            </div>
+          </div>
+          <br>
+          <label>Transaction ID</label>  
+          <p> 0123456789ABC</p>
+          <br>
+                      <label>Maturity date</label>  
+                      <input class="form-control w-50">
+                    <br>          
+              <button nbButton class="float-right">Create</button>
+          </form>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,64 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Upload Documents</h5>
+        <hr>
+        <div class="upload-documents">
+            <form [formGroup]="uploadDocForm">
+                <div class="from-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Create New Folder</label>
+                        </div>
+                        <div class="col-md-6">
+                            <ng-autocomplete [data]="data" formControlName="newFolder" [searchKeyword]="keyword"
+                                [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+                            </ng-autocomplete>
+
+                            <ng-template #itemTemplate let-item>
+                                <a [innerHTML]="item.name"></a>
+                            </ng-template>
+
+                            <ng-template #notFoundTemplate let-notFound>
+                                <div [innerHTML]="notFound"></div>
+                            </ng-template>
+                        </div>
+                        <div *ngIf="clickCount<5" class="col-md-1 plus-icon">
+                            <i (click)="onAddButton()" class="fa fa-plus-circle" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="addMoreFields" formArrayName="itemRows">
+                        <div *ngFor="let itemRow of uploadDocForm.controls.itemRows['controls'];let i=index"
+                            [formGroupName]=i>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>File Name {{i+1}}</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" formControlName='fileName'>
+                                </div>
+                                <div class="col-md-1 minus-icon">
+                                    <i (click)="onDeleteButton(i)" class="fa fa-minus-circle" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>Upload File {{i+1}}</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control" formControlName='uploadFile'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons mt-4">
+                    <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Submit</button>
+                    <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                    <button nbButton class="ml-3 appearance-hero status-primary" (click)="onBack()">
+                        Back
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

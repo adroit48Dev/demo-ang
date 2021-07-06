@@ -1,0 +1,35 @@
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <h6>Update Employee Leave Policy<button type="button" class="close" aria-label="Close"
+                (click)="viewLeavePolicy()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <br>
+        <form [formGroup]="updateLeavePolicyForm">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required label">Name</label>
+                    <input type="text" class="form-control" readonly formControlName = "name" 
+                    required [(ngModel)]="LeavepolicyData['name']">
+                </div>
+                <div class="col">
+                    <label class="required label">Number of Days</label>
+                    <input type="number" class="form-control" formControlName = "numberOfDays"
+                    [ngClass]="{ 'is-invalid': submitted && f.numberOfDays.errors }" required [(ngModel)]="LeavepolicyData['noofdays']">
+                    <div *ngIf="submitted && f.numberOfDays.errors" class="invalid-feedback">
+                        <div *ngIf="f.numberOfDays.errors.required">Number of Days is required</div>
+                    </div>
+                    </div>
+
+            </div><br>
+            <div class="buttons">
+                <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Update</button>
+                <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewLeavePolicy()">
+                    Back
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

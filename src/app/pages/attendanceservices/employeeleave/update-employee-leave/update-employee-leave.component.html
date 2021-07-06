@@ -1,0 +1,51 @@
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <h6>Update Employee Leave<button type="button" class="close" aria-label="Close" (click)="viewEmployeeLeave()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <br>
+        <form [formGroup]="updateEmployeeLeave">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required">Leave Name</label>
+                    <input type="text" class="form-control" formControlName="leaveName" disabled required>
+                </div>
+                <div class="col">
+                    <label class="required">Leave Start</label>
+                    <input type="date" class="form-control" name="leaveStart" formControlName="leaveStart"
+                    [ngClass]="{ 'is-invalid': submitted && f.leaveStart.errors }" required>
+                    <div *ngIf="submitted && f.leaveStart.errors" class="invalid-feedback">
+                        <div *ngIf="f.leaveStart.errors.required">Leave End is required</div>
+                    </div>
+                    </div>
+                </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required">Leave End</label>
+                    <input type="date" class="form-control" name="leaveEnd" formControlName="leaveEnd"
+                    [ngClass]="{ 'is-invalid': submitted && f.leaveEnd.errors }" required>
+                    <div *ngIf="submitted && f.leaveEnd.errors" class="invalid-feedback">
+                        <div *ngIf="f.leaveEnd.errors.required">Leave End is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required">Remaining Leave</label>
+                    <input type="number" class="form-control" name="remainingLeave" formControlName="remainingLeave"
+                    [ngClass]="{ 'is-invalid': submitted && f.remainingLeave.errors }" required>
+                    <div *ngIf="submitted && f.remainingLeave.errors" class="invalid-feedback">
+                        <div *ngIf="f.remainingLeave.errors.required">Leave End is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons mt-4">
+                <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Update</button>
+                <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewEmployeeLeave()">
+                    Back
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

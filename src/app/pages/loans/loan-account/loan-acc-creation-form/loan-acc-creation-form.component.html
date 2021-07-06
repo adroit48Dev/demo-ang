@@ -1,0 +1,283 @@
+<div class="card">
+    <div class="card-body">
+        <form *ngIf='form' class="forms-sample" [formGroup]="loanAccCreationForm">
+            <h5 class="card-title">Loan Account Creation</h5><button type="button" class="close" aria-label="Close"
+                (click)="viewLoanAcc()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <hr>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Loan Product</label>
+                        <select class="form-control" formControlName="loanproduct"
+                            [ngClass]="{ 'is-invalid': submitted&&f.loanproduct.errors}">
+                            <option value="home-loan">Home Loan</option>
+                            <option value="business-loan">Business Loan</option>
+                        </select>
+                        <div *ngIf="submitted&&f.loanproduct.errors" class="invalid-feedback">
+                            <div>loan product is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Loan Amount</label>
+                        <input type="number" class="form-control" placeholder="Example:500000"
+                            formControlName="loan_amount" [ngClass]="{ 'is-invalid': submitted&&f.loan_amount.errors}">
+                        <div *ngIf="submitted&&f.loan_amount.errors" class="invalid-feedback">
+                            <div>loan amount is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Interest Type</label>
+                        <select class="form-control" (change)="selectOption($event.target.value)"
+                            formControlName="interesttype"
+                            [ngClass]="{ 'is-invalid': submitted&&f.interesttype.errors}">
+                            <option value="flat-rate" disabled>Flat Rate</option>
+                            <option value="variable-rate" disabled>Variable Rate</option>
+                        </select>
+                        <div *ngIf="submitted&&f.interesttype.errors" class="invalid-feedback">
+                            <div>interest type is required</div>
+                        </div>
+                    </div>
+                    <div *ngIf="variableRate" class="col-md-6">
+                        <label class="required label">Interest Method</label>
+                        <select class="form-control" formControlName="interestmethod"
+                            [ngClass]="{ 'is-invalid': submitted&&f.interestmethod.errors}">
+                            <option value="" selected disabled hidden>Choose Interest Method</option>
+                            <option value="year">Yearly Reducing Balance</option>
+                            <option value="month">Monthly Reducing Balance</option>
+                        </select>
+                        <div *ngIf="submitted&&f.interestmethod.errors" class="invalid-feedback">
+                            <div>interest method period is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Interest Rate</label>
+                        <select class="form-control" formControlName="interest_rate"
+                            [ngClass]="{ 'is-invalid': submitted&&f.interest_rate.errors}">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3">4</option>
+                            <option value="3">5</option>
+                            <option value="3">6</option>
+                        </select>
+                        <div *ngIf="submitted&&f.interest_rate.errors" class="invalid-feedback">
+                            <div>interest rate is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Tenure</label>
+                        <select class="form-control" formControlName="tenure"
+                            [ngClass]="{ 'is-invalid': submitted&&f.tenure.errors}">
+                            <option value="" selected disabled hidden>Choose Tenure Period</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        <div *ngIf="submitted&&f.tenure.errors" class="invalid-feedback">
+                            <div>tenure period is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Are You Bank Customer?</label>
+                        <select class="form-control" formControlName="bank_cus"
+                            [ngClass]="{ 'is-invalid': submitted&&f.bank_cus.errors}">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <div *ngIf="submitted&&f.bank_cus.errors" class="invalid-feedback">
+                            <div>bank customer option is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Bank Account Number</label>
+                        <input type="number" class="form-control" formControlName="bankaccno"
+                            [ngClass]="{ 'is-invalid': submitted&&f.bankaccno.errors}">
+                        <div *ngIf="submitted&&f.bankaccno.errors" class="invalid-feedback">
+                            <div>bank account number is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Bank Name</label>
+                        <input type="text" class="form-control" placeholder="Example: state bank of india"
+                            formControlName="bankname" [ngClass]="{ 'is-invalid': submitted&&f.bankname.errors}">
+                        <div *ngIf="submitted&&f.bankname.errors" class="invalid-feedback">
+                            <div>bank name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Bank IFSC Code</label>
+                        <input type="text" class="form-control" placeholder="Example: SBIN0001"
+                            formControlName="bankifsc" [ngClass]="{ 'is-invalid': submitted&&f.bankifsc.errors}">
+                        <div *ngIf="submitted&&f.bankifsc.errors" class="invalid-feedback">
+                            <div>bank ifsc code is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Installment</label>
+                        <select class="form-control" formControlName="installment"
+                            [ngClass]="{ 'is-invalid': submitted&&f.installment.errors}">
+                            <option value="1">Monthly</option>
+                            <option value="2">Yearly</option>
+                        </select>
+                        <div *ngIf="submitted&&f.installment.errors" class="invalid-feedback">
+                            <div>installment option is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Repayment Mode</label>
+                        <select class="form-control" formControlName="repaymentmode"
+                            [ngClass]="{ 'is-invalid': submitted&&f.repaymentmode.errors}">
+                            <option value="1">Cash</option>
+                            <option value="2">Cheque</option>
+                            <option value="3">ECS</option>
+                        </select>
+                        <div *ngIf="submitted&&f.repaymentmode.errors" class="invalid-feedback">
+                            <div>repayment mode is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Loan Repayment Period (months)</label>
+                        <input type="number" class="form-control" placeholder="Example:20"
+                            formControlName="loan_repayment_period"
+                            [ngClass]="{ 'is-invalid': submitted&&f.loan_repayment_period.errors}">
+                        <div *ngIf="submitted&&f.loan_repayment_period.errors" class="invalid-feedback">
+                            <div>loan repayment period is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Billing Cycle</label>
+                        <select class="form-control" formControlName="billingcycle"
+                            [ngClass]="{ 'is-invalid': submitted&&f.billingcycle.errors}">
+                            <option value="1">1</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
+                        <div *ngIf="submitted&&f.billingcycle.errors" class="invalid-feedback">
+                            <div>billing cycle is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Document (aadhar,PAN,payslip,etc)</label>
+                        <input type="file" class="form-control" multiple formControlName="document"
+                            [ngClass]="{ 'is-invalid': submitted&&f.document.errors}">
+                        <div *ngIf="submitted&&f.document.errors" class="invalid-feedback">
+                            <div>document name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="buttons mt-4">
+                            <button nbButton class=" appearance-hero status-success"
+                                (click)="onSubmit()">Submit</button>
+                            <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                            <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewLoanAcc()">
+                                Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- form-preview -->
+        <div *ngIf="formPreview" class="form-preview">
+            <h4 class="card-title">Loan Creation Form Preview</h4>
+            <br>
+            <table>
+                <tr>
+                    <td>Loan Product</td>
+                    <td>Business Loan</td>
+                </tr>
+                <tr>
+                    <td>Interest Type</td>
+                    <td>Variable Rate</td>
+                </tr>
+                <tr>
+                    <td>Interest Method</td>
+                    <td>Monthly Reducing Balance</td>
+                </tr>
+                <tr>
+                    <td>Tenure</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Loan Amount</td>
+                    <td>₹12,000</td>
+                </tr>
+                <tr>
+                    <td>Interest Rate</td>
+                    <td>5.6%</td>
+                </tr>
+                <tr>
+                    <td>Bank Customer</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Bank Account Number</td>
+                    <td>123456651234</td>
+                </tr>
+                <tr>
+                    <td>Bank Name</td>
+                    <td>HDFC Bank</td>
+                </tr>
+                <tr>
+                    <td>Bank IFSC Code</td>
+                    <td>HDFC2341</td>
+                </tr>
+                <tr>
+                    <td>Installment</td>
+                    <td>Monthly</td>
+                </tr>
+                <tr>
+                    <td>Repayment Mode</td>
+                    <td>Cash</td>
+                </tr>
+                <tr>
+                    <td>Loan Repayment Period</td>
+                    <td>5 years</td>
+                </tr>
+                <tr>
+                    <td>Billing Cycle</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Document</td>
+                    <td>Salary_Slip.pdf, Bank_Statement.pdf</td>
+                </tr>
+                <tr>
+            </table>
+            <div class="button">
+                <button (click)="form=true;formPreview=false" class="btn btn-danger">Back</button>
+                <button class="btn btn-success">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

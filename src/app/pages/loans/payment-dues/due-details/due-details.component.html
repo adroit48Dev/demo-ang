@@ -1,0 +1,80 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Payment Due Details</h5>
+        <hr>
+        <div class="head-container">
+            <div class="box">
+                <div class="text">
+                    <p>Total Balance</p>
+                    <h5>Rs.{{dueDetailsData.Balance}}</h5>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <p>Total Due</p>
+                    <h5>Rs.{{dueDetailsData.TotalPaidAmount}}</h5>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <p>Days in Arrears</p>
+                    <h5>{{dueDetailsData.DaysInArrear}}</h5>
+                </div>
+            </div>
+            <div class="box">
+                <div class="text">
+                    <p>Days Late</p>
+                    <h5>{{dueDetailsData.DaysLate}}</h5>
+                </div>
+            </div>
+        </div>
+        <div class="detail-container">
+
+            <p class="card-title">Details</p>
+            <hr>
+            <table>
+                <tr>
+                    <td>Account Number</td>
+                    <td>{{dueDetailsData.AccountNumber}}</td>
+                </tr>
+                <tr>
+                    <td>Total Paid Amount</td>
+                    <td>₹{{dueDetailsData.TotalPaidAmount}}</td>
+                </tr>
+                <tr>
+                    <td>Balance</td>
+                    <td>₹{{dueDetailsData.Balance}}</td>
+                </tr>
+                <tr>
+                    <td>Over Due Charge</td>
+                    <td>₹{{dueDetailsData.OverDueCharge}}</td>
+                </tr>
+                <tr>
+                    <td>Days In Arrears</td>
+                    <td>{{dueDetailsData.DaysInArrear}} Days (Since {{dueDetailsData.Since}})</td>
+                </tr>
+                <tr>
+                    <td>Days Late</td>
+                    <td>{{dueDetailsData.DaysLate}}</td>
+                </tr>
+                <tr>
+                    <td>Total Interest Paid</td>
+                    <td>₹{{dueDetailsData.TotalInterestPaid}}</td>
+                </tr>
+                <tr>
+                    <td>Total Principal Paid</td>
+                    <td>₹{{dueDetailsData.TotalPrincipalPaid}}</td>
+                </tr>
+                <tr>
+                    <td>Tenure</td>
+                    <td>{{dueDetailsData.Tenure}} months</td>
+                </tr>
+                <tr>
+                    <td>Monthly EMI</td>
+                    <td>{{dueDetailsData.MonthlyEMI}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>

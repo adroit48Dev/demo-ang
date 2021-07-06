@@ -1,0 +1,26 @@
+<nb-card>
+    <nb-card-header class="depositHeader">
+        <h5>Bank Deposits</h5><button nbButton class="float-right appearance-hero status-success"
+            routerLink="bank-deposit-form">Create
+            Bank Deposit</button>
+    </nb-card-header>
+    <nb-card-body class="example-items-col mt-4 ">
+        <div class="row">
+            <div class="col-6" *ngFor="let item of this.bankdata[0]">
+                <nb-card class="deposit-card">
+                    <div class="heading">{{item['product_name']}}
+                        <i class="fas fa-edit float-right" (click)="bankid(item['_id'])"></i>
+                    </div>
+                    <div class="subHeading">{{item['product_detail']}}</div>
+                </nb-card>
+            </div>
+            <!-- <div class="col-6">
+                <nb-card class="branch-card">
+                    <h1>Bank Deposit 2</h1>
+                    <h1>Deposit <a routerLink="update-bank-deposit"><i class="fas fa-edit float-right"
+                                style="font-size: 17px;"></i></a></h1>
+                </nb-card>
+            </div> -->
+        </div>
+    </nb-card-body>
+</nb-card>

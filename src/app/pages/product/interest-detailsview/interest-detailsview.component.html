@@ -1,0 +1,30 @@
+<nb-card>
+  <nb-card-header class="InterestHeader">
+    <h5>Interest Details</h5> <button nbButton class="float-right appearance-hero status-success"
+      (click)="Createinterest()">Create Interest</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+      <div class="col-6" *ngFor="let data of InterestDetailsData">
+        <nb-card class="Interest-card">
+          <div class="row">
+            <div class="col-6">
+              <div class=" heading">Interest Name </div>
+              <div class=" subHeading">Product Name </div>
+              <div class="subHeading">Branch Name </div>
+            </div>
+            <div class="col-6">
+              <div class="heading">{{ data.interestname }}
+                <a><i class="fas fa-edit float-right" (click)="interestdetailsid(data.id)"></i></a>
+              </div>
+              <div class="subHeading">{{ data.productname }}</div>
+              <div class="subHeading">{{ data.branchname }}</div>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<!-- update path= /pages/product/accountdetailsupdate -->

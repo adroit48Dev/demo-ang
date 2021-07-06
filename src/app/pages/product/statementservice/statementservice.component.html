@@ -1,0 +1,127 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header>
+        <h6>Statement Service</h6>
+      </nb-card-header>
+      <nb-card-body>
+
+        <nb-select [(ngModel)]="selectedLevel" (selectedChange)="selected()">
+          <nb-option value="Daily User Account Statment">Daily User Account Statment</nb-option>
+          <nb-option value="Monthly User Account Statement">Monthly User Account Statement</nb-option>
+          <nb-option value="General Ledger Daily Statement">General Ledger Daily Statement</nb-option>
+          <nb-option value="General ledger Monthly Statement">General ledger Monthly Statement</nb-option>
+          <nb-option value="Daily Head Quater Statement">Daily Head Quater Statement</nb-option>
+          <nb-option value="Monthly Head Quater Statement">Monthly Head Quater Statement</nb-option>
+          <nb-option value="Daily Vault Statement">Daily Vault Statement</nb-option>
+          <nb-option value="Monthly Vault Statement">Monthly Vault Statement</nb-option>
+        </nb-select>
+        <br>
+        <br>
+        <div *ngIf="replytype =='Daily User Account Statment'">
+          <b>Daily User Account Statment</b>
+
+          <form class="form-inline" [formGroup]="statementservice">
+            <label class="required">From Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="">
+            <button type="submit" nbButton status="primary">Submit</button>
+          </form>
+        </div>
+
+
+
+        <div *ngIf="replytype =='Monthly User Account Statement'">
+          <b>Monthly User Account Statement</b>
+
+          <form class="form-inline">
+            <label class="required">From Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="">
+            <label class="required">To Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="chargeddate">
+            <button type="submit" nbButton status="primary">Submit</button>
+          </form>
+        </div>
+
+
+
+        <div *ngIf="replytype =='General Ledger Daily Statement'">
+          <b>General Ledger Daily Statement</b>
+
+          <form class="form-inline">
+            <label class="required">From Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="">
+
+            <button type="submit" nbButton status="primary">Submit</button>
+          </form>
+        </div>
+
+
+
+        <div *ngIf="replytype =='General ledger Monthly Statement'">
+          <b>General ledger Monthly Statement</b>
+
+          <form class="form-inline">
+            <label class="required">From Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="">
+            <label class="required">To Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="chargeddate">
+            <button type="submit" nbButton status="primary">Submit</button>
+          </form>
+        </div>
+
+
+
+        <div *ngIf="replytype =='Daily Head Quater Statement'">
+          <b>Daily Head Quater Statement</b>
+          <br>
+          <br>
+          <form class="form-inline">
+            <label class="required">From Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="">
+
+            <button type="submit" nbButton status="primary">Submit</button>
+          </form>
+        </div>
+
+
+
+        <div *ngIf="replytype =='Monthly Head Quater Statement'">
+          <b>Monthly Head Quater Statement</b>
+
+          <form class="form-inline">
+            <label class="required">From Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="">
+            <label class="required">To Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="chargeddate">
+            <button type="submit" nbButton status="primary">Submit</button>
+          </form>
+        </div>
+
+
+
+        <div *ngIf="replytype =='Daily Vault Statement'">
+          <b>Daily Vault Statement</b>
+
+          <form class="form-inline">
+            <label class="required">From Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="">
+            <button type="submit" nbButton status="primary">Submit</button>
+          </form>
+        </div>
+
+
+        <div *ngIf="replytype =='Monthly Vault Statement'">
+          <b>Monthly Vault Statement</b>
+          <form class="form-inline">
+            <label class="required">From Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="">
+            <label class="required">To Date</label>
+            <input nbInput placeholder="Opening Date" type="date" class="form-control" name="chargeddate">
+            <button type="submit" nbButton status="primary">Submit</button>
+          </form>
+        </div>
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

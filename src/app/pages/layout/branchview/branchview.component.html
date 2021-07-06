@@ -1,0 +1,64 @@
+<!-- <nb-card *ngIf="BranchData.length == 0" style="padding:20%;">
+  <nb-card-body >
+    
+    <div class="row">
+
+      <div class="col-12">
+        <nb-card class="branch-card text-center">
+          
+            
+            <div class="card-body">
+              <h5 class="card-title">Register new Branch here....</h5>
+              <p class="card-text"> <button nbButton class= "appearance-hero status-success"(click)="Createbranch()">Create Branch</button></p>
+              
+            </div>
+          
+         
+        </nb-card>
+      </div>
+      </div>
+      </nb-card-body>
+</nb-card> -->
+<!-- <nb-card *ngIf="BranchData.length > 0 "> -->
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<nb-card  *ngIf="createOpt" style="padding: 110px;">
+  <nb-card-body class="example-items-col mt-4 text-center">
+    <div class="row">
+      <div class="col-12">
+        <button nbButton class=" appearance-hero status-success"
+        (click)="Createbranch()">Create Branch</button>
+      </div>
+      </div>
+      </nb-card-body>
+  
+</nb-card>
+
+<nb-card *ngIf="!createOpt">
+
+<nb-card >
+
+  <nb-card-header class="branchHeader">
+    <h5>Branch Details</h5><button nbButton class="float-right appearance-hero status-success"
+      (click)="Createbranch()">Create Branch</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+      <div class="col-6" *ngFor="let branchdata of BranchData; let i = index;">
+        <nb-card class="branch-card">
+          <div class="heading">{{ branchdata['branch_name'] }}
+            <i class="fas fa-edit float-right pointer" (click)="bracnchid(branchdata['branch_id'])"></i>
+          </div>
+          <div class="subHeading">{{ branchdata['address1'] }}</div>
+          <div class="subHeading">{{ branchdata['city'] }}</div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

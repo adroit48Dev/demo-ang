@@ -1,0 +1,22 @@
+[
+
+    {
+        "id":1,
+        "userID":12,
+        "holderName":"User name",
+        "ConditionName": "name1", 
+        "ConditionDetails": "XXXXXXXXXXXXX", 
+        "ConditionAmount": 15000
+     },
+
+    {
+       "id":12,
+       "userID":21,
+       "holderName":"User name new",
+       "ConditionName": "name2", 
+       "ConditionDetails": "XXXXXXXXXXXXX", 
+       "ConditionAmount": 23000
+     }
+
+     
+]

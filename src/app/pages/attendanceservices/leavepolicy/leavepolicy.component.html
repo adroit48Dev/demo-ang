@@ -1,0 +1,27 @@
+<nb-card>
+  <nb-card-header class="accountHeader">
+    <h5>Leave Policy List</h5>
+    <button nbButton (click)="createLeavePolicy()" class="float-right appearance-hero status-success">Create
+      Leave Policy</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+      <div class="col-6">
+        <nb-card class="Account-card">
+          <div class="row" *ngFor="let item of LeavePolicyData">
+            <div class="col-5">
+              <div class="heading">Name </div>
+              <div class="subHeading">Number of Days</div>
+            </div>
+            <div class="col-7">
+              <div class="heading">{{ item['name'] }}<a (click)="updateLeavePolicy(item['_id'])"><i
+                    class="fas fa-edit float-right "></i></a>
+              </div>
+              <div class="subHeading">{{ item['no_days'] }}</div>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,83 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <h6>Create deductions<button type="button" class="close" aria-label="Close" (click)="viewDeductions()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <br>
+        <form [formGroup]="createDeductionsForm">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required">Employee ID</label>
+                    <!-- <input type="text" class="form-control" formControlName="empid"
+                        [ngClass]="{ 'is-invalid': submitted && f.empid.errors }" required>
+                    <div *ngIf="submitted && f.empid.errors" class="invalid-feedback">
+                        <div *ngIf="f.empid.errors.required">Employee ID is required</div>
+                    </div> -->
+                    <select class="form-control" (change)="onEmpChange($event.target.value)">
+                        <option value="">Choose an Employee</option>
+                        <ng-container *ngFor="let data of employeeData">
+                            <option [value]="data?._id">{{data?.first_name}}</option>
+                        </ng-container>>
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="required">Employee Name</label>
+                    <input type="text" class="form-control" formControlName="empname"
+                        [ngClass]="{ 'is-invalid': submitted && f.empname.errors }" required>
+                    <div *ngIf="submitted && f.empname.errors" class="invalid-feedback">
+                        <div *ngIf="f.empname.errors.required">Employee Name is required</div>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="row">
+                <div class="col">
+                    <label class="required">PF</label>
+                    <input type="number" step="any" class="form-control" formControlName="pf"
+                        [ngClass]="{ 'is-invalid': submitted && f.pf.errors }" required>
+                    <div *ngIf="submitted && f.pf.errors" class="invalid-feedback">
+                        <div *ngIf="f.pf.errors.required">PF is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required">ESI</label>
+                    <input type="number" step="any" class="form-control" formControlName="esi"
+                        [ngClass]="{ 'is-invalid': submitted && f.esi.errors }" required>
+                    <div *ngIf="submitted && f.esi.errors" class="invalid-feedback">
+                        <div *ngIf="f.esi.errors.required">ESI is required</div>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="row">
+                <div class="col">
+                    <label class="required">Insurance</label>
+                    <input type="number" step="any" class="form-control" formControlName="insurance"
+                        [ngClass]="{ 'is-invalid': submitted && f.insurance.errors }" required>
+                    <div *ngIf="submitted && f.insurance.errors" class="invalid-feedback">
+                        <div *ngIf="f.insurance.errors.required">Insurance is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required">Tax</label>
+                    <input type="number" step="any" class="form-control" formControlName="tax"
+                        [ngClass]="{ 'is-invalid': submitted && f.tax.errors }" required>
+                    <div *ngIf="submitted && f.tax.errors" class="invalid-feedback">
+                        <div *ngIf="f.tax.errors.required">Tax is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons mt-4">
+                <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Create</button>
+                <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewDeductions()">
+                    Back
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,17 @@
+<nb-card>
+  <nb-card-header>{{data.email_name}}<i class="float-right" (click)="dismiss()" style="cursor: pointer;">x</i>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="emailForm">
+      <div class="form-group">
+        <input type="text" nbInput fullWidth placeholder="Subject" name="email_name" formControlName="email_name"
+          ngModel="{{data.email_name}}" required>
+      </div>
+      <div class="form-group col-sm-11">
+        <textarea nbInput placeholder="Message" class="col-12" name="email_details" formControlName="email_details"
+          ngModel="{{data.email_details}}" required></textarea>
+      </div>
+      <button type="submit" nbButton status="success" (click)="onSubmit()">Send</button>
+    </form>
+  </nb-card-body>
+</nb-card>

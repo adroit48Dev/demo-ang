@@ -1,0 +1,150 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <form [formGroup]="useraccountsform">
+      <h6>User Account</h6>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <label class="required label">User Name</label>
+          <input type="text" class="form-control" name="userId"  formControlName="userId"
+            [ngClass]="{ 'is-invalid': submitted && f.userId.errors }">
+          <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
+            <div *ngIf="f.userId.errors.required">User ID is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Account Name</label>
+          <select class="form-control" id="accountsId" formControlName="accountsId" placeholder="select Account Name" 
+          [ngClass]="{ 'is-invalid': submitted&&f.accountsId.errors}">
+          <option value=0 disabled>Select Account</option>
+          <option *ngFor="let option of AccountData" value="{{option['_id']}}">{{option.accountName}}</option>                                                     
+      </select>
+          <div *ngIf="submitted && f.accountsId.errors" class="invalid-feedback">
+            <div *ngIf="f.accountsId.errors.required">account name is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Net Banking Status</label>
+          <select class="form-control" name="netBankingStatus" formControlName="netBankingStatus"
+            [ngClass]="{ 'is-invalid': submitted && f.netBankingStatus.errors }">
+            <!-- <option value="" selected disabled hidden>Choose net banking status</option> -->
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+          <div *ngIf="submitted && f.netBankingStatus.errors" class="invalid-feedback">
+            <div *ngIf="f.netBankingStatus.errors.required">net banking status is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Mobile Banking Status</label>
+          <select class="form-control" name="mobileBankingStatus" formControlName="mobileBankingStatus"
+            [ngClass]="{ 'is-invalid': submitted && f.mobileBankingStatus.errors }">
+            <!-- <option value="" selected disabled hidden>Choose mobile banking status</option> -->
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+          <div *ngIf="submitted && f.mobileBankingStatus.errors" class="invalid-feedback">
+            <div *ngIf="f.mobileBankingStatus.errors.required">mobile banking status is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Net Bank ID</label>
+          <input type="text" class="form-control" name="netBankId" formControlName="netBankId"
+            [ngClass]="{ 'is-invalid': submitted && f.netBankId.errors }">
+          <div *ngIf="submitted && f.netBankId.errors" class="invalid-feedback">
+            <div *ngIf="f.netBankId.errors.required">Net Bank ID is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Net Bank Pin</label>
+          <input type="number" class="form-control" name="NetbankPin" formControlName="NetbankPin"
+            [ngClass]="{ 'is-invalid': submitted && f.NetbankPin.errors }">
+          <div *ngIf="submitted && f.NetbankPin.errors" class="invalid-feedback">
+            <div *ngIf="f.NetbankPin.errors.required">Net Bank Pin is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">NetBanking Password</label>
+          <input type="text" class="form-control" name="netBankPass" formControlName="netBankPass"
+            [ngClass]="{ 'is-invalid': submitted && f.netBankPass.errors }">
+          <div *ngIf="submitted && f.netBankPass.errors" class="invalid-feedback">
+            <div *ngIf="f.netBankPass.errors.required">NetBanking Password is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Amount</label>
+          <input type="number" class="form-control" name="amount" formControlName="amount"
+            [ngClass]="{ 'is-invalid': submitted && f.amount.errors }">
+          <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+            <div *ngIf="f.amount.errors.required">Transfer Per Month BY Card is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Charges ID</label>
+          <input type="text" class="form-control" name="chargesId" formControlName="chargesId"
+            [ngClass]="{ 'is-invalid': submitted && f.chargesId.errors }">
+          <div *ngIf="submitted && f.chargesId.errors" class="invalid-feedback">
+            <div *ngIf="f.chargesId.errors.required">Is Chargeable is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Blocked Blanace</label>
+          <input type="number" class="form-control" name="blockedBalance" formControlName="blockedBalance"
+            [ngClass]="{ 'is-invalid': submitted && f.blockedBalance.errors }">
+          <div *ngIf="submitted && f.blockedBalance.errors" class="invalid-feedback">
+            <div *ngIf="f.blockedBalance.errors.required">Arbitary Fees is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Interest Given</label>
+          <input type="text" class="form-control" name="interestGiven" formControlName="interestGiven"
+            [ngClass]="{ 'is-invalid': submitted && f.interestGiven.errors }">
+          <div *ngIf="submitted && f.interestGiven.errors" class="invalid-feedback">
+            <div *ngIf="f.interestGiven.errors.required">Interest Given is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Average Month Balance</label>
+          <input type="number" class="form-control" name="aveMonthBalance" formControlName="aveMonthBalance"
+            [ngClass]="{ 'is-invalid': submitted && f.aveMonthBalance.errors }">
+          <div *ngIf="submitted && f.aveMonthBalance.errors" class="invalid-feedback">
+            <div *ngIf="f.aveMonthBalance.errors.required">Average Month Balance is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Branch Name</label>
+          <select class="form-control" id="branchName" formControlName="branchName" placeholder="select Branch Name" 
+          [ngClass]="{ 'is-invalid': submitted&&f.branchName.errors}">
+          <option value=0 disabled>Select Branch</option>
+          <option *ngFor="let option of branchnamelist[0]" value="{{option['branch_id']}}">{{option.branch_name}}</option>                                                     
+      </select>
+          <div *ngIf="submitted && f.branchName.errors" class="invalid-feedback">
+            <div *ngIf="f.branchName.errors.required">Branch Name is required</div>
+          </div>
+        </div>  
+      </div>
+      <div class="buttons mt-4">
+        <button nbButton class="appearance-hero status-success" (click)="onSubmit()">Create</button>
+        <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,37 @@
+.head-container {
+    display: flex;
+    justify-content: center;
+    .box {
+        height: 100px;
+        width: 200px;
+        margin: 0 10px;
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        p {
+            margin-bottom: 5px;
+            color: rgb(51, 51, 51);
+        }
+    }
+}
+.detail-container {
+    margin-top: 50px;
+    p {
+        margin-bottom: 0px;
+        font: 300;
+    }
+    hr {
+        margin: 0;
+    }
+    table {
+        margin-top: 15px;
+        width: 100%;
+        td {
+            padding: 4px;
+        }
+        td:nth-child(odd) {
+            color: rgb(88, 88, 88);
+        }
+    }
+}

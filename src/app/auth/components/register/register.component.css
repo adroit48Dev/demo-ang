@@ -1,0 +1,130 @@
+label {
+  word-spacing: normal;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 200;
+  font-weight: 100;
+}
+
+.registration {
+  margin: 10px auto;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #fff;
+  /* #c20f0f;/* #8f0fc2;*/
+  color: #edece8;
+  /* border-bottom:1px solid #034488;
+    border-top:1px solid #034488; */
+}
+
+.navbar .navbar-brand {
+  position: absolute;
+  float: left;
+  left: 75px;
+  font-size: x-large;
+}
+
+.btn {
+  border: 2px solid #178fd6;
+  /* #8f0fc2;/*#c20f0f;*/
+  font-weight: 500;
+  color: #034488;
+}
+
+.btn:hover {
+  background-color: #178fd6;
+  /* #8f0fc2;*/
+  -webkit-transition: 0.5 ease;
+  transition: 0.5 ease;
+  color: #ffefef;
+  /* #ffefef;*/
+}
+
+.form-check-label {
+  font-weight: 200;
+  font-size: small;
+}
+
+.log a {
+  /* #96C3EA;*/
+  color: #034488;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  border-radius: 32px;
+}
+
+.log a:hover {
+  color: #178fd6;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: ease all 2s;
+  transition: ease all 2s;
+}
+
+.registers {
+  /* background: #8f0fc2; */
+  background: #fff;
+  /* blueviolet;*/
+  border-radius: 4px;
+  color: #034488;
+  padding: 10px;
+}
+
+.registers small {
+  color: #534f4f !important;
+}
+
+:host ::ng-deep nb-stepper .step-content {
+  text-align: center;
+}
+
+:host ::ng-deep nb-stepper .step-content button {
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+
+.search {
+  width: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 1px solid #f3f3f3;
+  border-right: none;
+  padding: 15px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #00ff88;
+}
+
+.searchTerm:focus {
+  color: #0081cc;
+}
+
+.searchButton {
+  width: 40px;
+  height: 32px;
+  border: 2px solid #fff;
+  background: #f3f3f3;
+  text-align: center;
+  color: #696cf7;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.steppers {
+  top: 10%;
+}
+/*# sourceMappingURL=register.component.css.map */
+
+
+

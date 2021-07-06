@@ -1,0 +1,53 @@
+[
+
+    {
+        "id":12,
+        "productname":"product1",
+        "shortname":"pdt1",
+        "interesttype":"new interest1",
+        "penaltyrate":30,
+        "tenure":20,
+        "processingfees":1000,
+        "processingfee_transferfromaccount":2000,
+        "prepaymentfees":2000,
+        "prepaymentlockingperiod":2,
+        "penalty_rate":20,
+        "documentname":"document 1",
+        "minimumamount":2055,
+        "maximumamount":201111,
+        "minimuminterestrate":20,
+        "maximuminterestrate":25,
+        "arrear_tolerance_days":20,
+        "nonworking_days_tolerance_period":2,
+        "NPADays":233,
+        "conditiondetail":"New Interest Description",
+        "conditionname":"New Condition name",
+        "conditionamount":20000
+     },
+
+    {
+        "id":12,
+        "productname":"product1",
+        "shortname":"pdt1",
+        "interesttype":"new interest1",
+        "penaltyrate":30,
+        "tenure":20,
+        "processingfees":1000,
+        "processingfee_transferfromaccount":2000,
+        "prepaymentfees":2000,
+        "prepaymentlockingperiod":2,
+        "penalty_rate":20,
+        "documentname":"document 1",
+        "minimumamount":2055,
+        "maximumamount":201111,
+        "minimuminterestrate":20,
+        "maximuminterestrate":25,
+        "arrear_tolerance_days":20,
+        "nonworking_days_tolerance_period":2,
+        "NPADays":233,
+        "conditiondetail":"New Interest Description",
+        "conditionname":"New Condition name",
+        "conditionamount":20000
+     }
+]
+

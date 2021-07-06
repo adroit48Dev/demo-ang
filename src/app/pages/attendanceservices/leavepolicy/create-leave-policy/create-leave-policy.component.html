@@ -1,0 +1,36 @@
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <h6>Employee Leave Policy<button type="button" class="close" aria-label="Close" (click)="viewLeavePolicy()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <br>
+        <form [formGroup]="createLeavePolicyForm">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required label">Name</label>
+                    <input type="text" class="form-control"  formControlName = "name" 
+                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required>
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required label">Number of Days</label>
+                    <input type="number" class="form-control"  formControlName = "noofdays" 
+                [ngClass]="{ 'is-invalid': submitted && f.noofdays.errors }" required>
+                <div *ngIf="submitted && f.noofdays.errors" class="invalid-feedback">
+                    <div *ngIf="f.noofdays.errors.required">Number of Days is required</div>
+                </div>
+                </div>
+            </div><br>
+            <div class="buttons">
+                <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Create</button>
+                <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewLeavePolicy()">
+                    Back
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

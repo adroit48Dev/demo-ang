@@ -1,0 +1,40 @@
+import { Component, OnInit } from '@angular/core';
+import {DepositSchemeService} from '../deposit-scheme.service'
+import {ActivatedRoute, Router} from "@angular/router"
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+@Component({
+  selector: 'app-deposit-scheme',
+  templateUrl: './deposit-scheme.component.html',
+  styleUrls: ['./deposit-scheme.component.scss']
+})
+export class DepositSchemeComponent implements OnInit {
+  schemedata: any = []
+
+     constructor(    private spinner: NgxSpinnerService ,private route: ActivatedRoute,private router: Router,private formBuilder: FormBuilder,private _depositservice:DepositSchemeService) { }
+
+
+  ngOnInit(): void {
+    
+
+    this._depositservice.all_scheme_get().subscribe(res => {
+        console.log(res)
+        this.schemedata.push(res)
+    
+  },
+    err => {
+     console.log("test")
+    })
+    
+
+
+  }
+
+
+  schid(id){
+    this.router.navigate(['update-deposit-scheme',id],{ relativeTo: this.route })
+    
+  }
+
+}

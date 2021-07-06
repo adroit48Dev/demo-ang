@@ -1,0 +1,32 @@
+[
+   
+
+    {
+        "id":1,
+       "accountname":"ABCD Account",
+        "accounttype":"SA",
+        "Branchname":"Chengalpattu",
+        "Interestid":12345,
+        "Feedid":12345,
+        "Ruleid":123245,
+        "Transferpd":12313,
+        "Transferpm":123123,
+        "IsChargeable":123131 ,
+        "Arbitaryfees":100,
+        "Minimumb": 1231
+    },
+    {
+        "id":2,
+        "accountname":"CACD Account",
+         "accounttype":"SA",
+         "Branchname":"Chennai",
+         "Interestid":12345,
+         "Feedid":12345,
+         "Ruleid":123245,
+         "Transferpd":12313,
+         "Transferpm":123123,
+         "IsChargeable":123131 ,
+         "Arbitaryfees":100,
+         "Minimumb": 1231
+     }
+]

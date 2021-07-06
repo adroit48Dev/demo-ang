@@ -1,0 +1,79 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+<nb-card>
+    <nb-card-body class="example-items-col">
+        <h6>Create Employee Attendance<button type="button" class="close" aria-label="Close" (click)="viewAttendance()">
+                <span aria-hidden="true">&times;</span>
+            </button></h6>
+        <br>
+        <form [formGroup]="attendanceCreationForm">
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="required">Employee</label>
+                    <!-- <input type="text" class="form-control" formControlName = "empid" required> -->
+                    <select class="form-control" (change)="onEmpChange($event.target.value)">
+                        <option value="">Choose an Employee</option>
+                        <ng-container *ngFor="let data of employeeData">
+                            <option [value]="data?._id">{{data?.first_name}}</option>
+                        </ng-container>>
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="required">Working Days</label>
+                    <input type="number" class="form-control" formControlName="workdays"
+                        [ngClass]="{ 'is-invalid': submitted && f.workdays.errors }" required>
+                    <div *ngIf="submitted && f.workdays.errors" class="invalid-feedback">
+                        <div *ngIf="f.workdays.errors.required">Working Days is required</div>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="row">
+                <div class="col">
+                    <label class="required">Actual Days</label>
+                    <input type="number" class="form-control" formControlName="actualdays"
+                        [ngClass]="{ 'is-invalid': submitted && f.actualdays.errors }" required>
+                    <div *ngIf="submitted && f.actualdays.errors" class="invalid-feedback">
+                        <div *ngIf="f.actualdays.errors.required">Actual Days is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required">Working Hours</label>
+                    <input type="number" class="form-control" formControlName="work_hours"
+                        [ngClass]="{ 'is-invalid': submitted && f.work_hours.errors }" required>
+                    <div *ngIf="submitted && f.work_hours.errors" class="invalid-feedback">
+                        <div *ngIf="f.work_hours.errors.required">Working Hours is required</div>
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="row">
+                <div class="col">
+                    <label class="required">Paid Leave</label>
+                    <input type="number" class="form-control" formControlName="paid_leave"
+                        [ngClass]="{ 'is-invalid': submitted && f.paid_leave.errors }" required>
+                    <div *ngIf="submitted && f.paid_leave.errors" class="invalid-feedback">
+                        <div *ngIf="f.paid_leave.errors.required">Paid Leave is required</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="required">Permissions</label>
+                    <input type="number" class="form-control" formControlName="permissions"
+                        [ngClass]="{ 'is-invalid': submitted && f.permissions.errors }" required>
+                    <div *ngIf="submitted && f.permissions.errors" class="invalid-feedback">
+                        <div *ngIf="f.permissions.errors.required">Permission is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons mt-4">
+                <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Create</button>
+                <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewAttendance()">
+                    Back
+                </button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

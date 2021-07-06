@@ -1,0 +1,34 @@
+.upload-documents {
+    width: 700px;
+    margin: 0 auto;
+    .from-group {
+        .row {
+            margin-bottom: 10px;
+        }
+        i {
+            margin-left: 2px;
+            color: #9195b4;
+            font-size: 10px;
+        }
+        .fa-plus-circle {
+            font-size: 20px;
+            color: #42a948;
+            cursor: pointer;
+        }
+        .plus-icon {
+            display: flex;
+            align-items: center;
+            padding-left: 0;
+        }
+        .fa-minus-circle {
+            font-size: 20px;
+            color: #9c1e1e;
+            cursor: pointer;
+        }
+        .minus-icon {
+            display: flex;
+            align-items: center;
+            padding-left: 0;
+        }
+    }
+}

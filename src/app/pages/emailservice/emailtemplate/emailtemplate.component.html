@@ -1,0 +1,46 @@
+<nb-card>
+  <nb-card-body class="example-items-col margin">
+    <h6>Email Template</h6>
+    <br>
+    <form [formGroup]="EmailForm">
+      <br>
+      <div class="form-group">
+        <label for="email-name" class="col-sm-11">Email Name:</label>
+        <div class="col-sm-11">
+          <input type="text" class="form-control select2-offscreen" id="email_name" 
+          placeholder="Type email name"
+          tabindex="-1" name="email_name" formControlName="email_name"
+          [ngClass]="{ 'is-invalid': submitted && f.email_name.errors }" required>
+          <div *ngIf="submitted && f.email_name.errors" class="invalid-feedback">
+            <div *ngIf="f.email_name.errors.required">Email Name is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email-details" class="col-sm-11">Email Details:</label>
+        <div class="col-sm-11">
+          <textarea class="form-control" id="email_details" rows="12"
+            placeholder="Click here to write" name="email_details" formControlName="email_details"
+            [ngClass]="{ 'is-invalid': submitted && f.email_details.errors }">
+          </textarea>
+          <div *ngIf="submitted && f.email_details.errors" class="invalid-feedback">
+            <div *ngIf="f.email_details.errors.required">Email Details is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-11">
+      <button nbButton class="float-right appearance-hero status-primary" style="margin-top: 25px;" 
+      (click)="onSubmit()">Submit</button>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card class="own-scroll col-sm-11 margin">
+    <nb-card-header style="font-size: x-large;">Templates</nb-card-header>
+    <nb-card-body class="scrollable">
+      <nb-list>
+        <nb-list-item class="templatedata" (click)="open(template)" *ngFor="let template of emailTemplates">{{template.email_name}}<p class="message" hidden>message content</p>
+        </nb-list-item>
+      </nb-list>
+    </nb-card-body>
+  </nb-card>
+</nb-card>

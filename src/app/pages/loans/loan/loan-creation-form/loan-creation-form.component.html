@@ -1,0 +1,301 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Loan Product Creation<button type="button" class="close" aria-label="Close"
+                (click)="viewLoan()">
+                <span aria-hidden="true">&times;</span>
+            </button></h5>
+        <hr>
+        <form class="forms-sample" [formGroup]="loanCreationForm">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Product Name</label><i class="fas fa-info-circle"
+                            title="Name of the loan product"></i>
+                        <input type="text" class="form-control" formControlName="productname"
+                            [ngClass]="{ 'is-invalid': submitted&&f.productname.errors}">
+                        <div *ngIf="submitted&&f.productname.errors" class="invalid-feedback">
+                            <div>product name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Short Name</label>
+                        <input type="text" class="form-control" formControlName="shortname"
+                            [ngClass]="{ 'is-invalid': submitted&&f.shortname.errors}">
+                        <div *ngIf="submitted&&f.shortname.errors" class="invalid-feedback">
+                            <div>short name is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Interest Type</label>
+                        <select class="form-control" formControlName="interesttype"
+                            [ngClass]="{ 'is-invalid': submitted&&f.interesttype.errors}">
+                            <option value="flat-rate">Flat Rate</option>
+                            <option value="variable-rate">Variable Rate</option>
+                        </select>
+                        <div *ngIf="submitted&&f.interesttype.errors" class="invalid-feedback">
+                            <div>interest type is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Penalty Rate (%)</label>
+                        <input type="number" class="form-control" placeholder="Example: 1.5"
+                            formControlName="penaltyrate" [ngClass]="{ 'is-invalid': submitted&&f.penaltyrate.errors}">
+                        <div *ngIf="submitted&&f.penaltyrate.errors" class="invalid-feedback">
+                            <div *ngIf="f.penaltyrate.errors.required">penalty rate field is required</div>
+                            <div *ngIf="f.penaltyrate.errors.pattern">penalty rate must be valid</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Tenure Period</label><i class="fas fa-info-circle"
+                            title="How long does the loan last"></i>
+                        <select class="form-control" formControlName="tenure"
+                            [ngClass]="{ 'is-invalid': submitted&&f.tenure.errors}">
+                            <!-- <option selected disabled hidden value="">Choose Tenure Period</option> -->
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3">4</option>
+                            <option value="3">5</option>
+                            <!-- options upto 5 -->
+                        </select>
+                        <div *ngIf="submitted&&f.tenure.errors" class="invalid-feedback">
+                            <div>tenure is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Bounce Charge</label><i class="fas fa-info-circle"
+                            title="Banks charge for every bounced cheque given for the payment of the loan amount owing to the insufficient funds in your account."></i>
+                        <input type="number" class="form-control" placeholder="Example: 3000"
+                            formControlName="bouncecharge"
+                            [ngClass]="{ 'is-invalid': submitted&&f.bouncecharge.errors}">
+                        <div *ngIf="submitted&&f.bouncecharge.errors" class="invalid-feedback">
+                            <div *ngIf="f.bouncecharge.errors.required">bounce charge is required</div>
+                            <div *ngIf="f.bouncecharge.errors.pattern">bounce charge be a valid</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Over Due Interest(%)</label><i class="fas fa-info-circle"
+                            title="When there is a delay in paying your monthly EMIs of your loan, banks charge a late payment fee with your EMIs."></i>
+                        <input type="number" class="form-control" placeholder="Example: 3"
+                            formControlName="overdueinterest"
+                            [ngClass]="{ 'is-invalid': submitted&&f.overdueinterest.errors}">
+                        <div *ngIf="submitted&&f.overdueinterest.errors" class="invalid-feedback">
+                            <div *ngIf="f.overdueinterest.errors.required">over due interest is required</div>
+                            <div *ngIf="f.overdueinterest.errors.pattern">over due interest must be a valid</div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Processing Fees(%)</label><i class="fas fa-info-circle"
+                            title="It is a fee charged by banks from the borrowers to process their loan application"></i>
+                        <input type="number" class="form-control" placeholder="Example: 5"
+                            formControlName="processingfees"
+                            [ngClass]="{ 'is-invalid': submitted&&f.processingfees.errors}">
+                        <div *ngIf="submitted&&f.processingfees.errors" class="invalid-feedback">
+                            <div *ngIf="f.processingfees.errors.required">processing fees is required</div>
+                            <div *ngIf="f.processingfees.errors.pattern">processing fees must be a valid</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Processing Fee Transfer From Account</label>
+                        <select class="form-control" formControlName="processingfee_transferfromaccount"
+                            [ngClass]="{ 'is-invalid': submitted&&f.processingfee_transferfromaccount.errors}">
+                            <!-- <option value="" selected disabled hidden>Choose Here</option> -->
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <div *ngIf="submitted&&f.processingfee_transferfromaccount.errors" class="invalid-feedback">
+                            <div>processing fee transfer from account is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Prepayment Fees(%)</label><i class="fas fa-info-circle"
+                            title="Banks charge borrowers with a fee when they pay the loan EMIs before the tenure( which normally is between 2-5% of the outstanding loan amount)"></i>
+                        <input type="number" class="form-control" placeholder="Example: 3"
+                            formControlName="prepaymentfees"
+                            [ngClass]="{ 'is-invalid': submitted&&f.prepaymentfees.errors}">
+                        <div *ngIf="submitted&&f.prepaymentfees.errors" class="invalid-feedback">
+                            <div *ngIf="f.prepaymentfees.errors.required">prepayment fees is required</div>
+                            <div *ngIf="f.prepaymentfees.errors.pattern">prepayment fees must be a valid</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Prepayment Locking Period</label>
+                        <select class="form-control" formControlName="prepaymentlockingperiod"
+                            [ngClass]="{ 'is-invalid': submitted&&f.prepaymentlockingperiod.errors}">
+                            <option value="3">3</option>
+                            <option value="6">6</option>
+                            <option value="9">9</option>
+                            <option value="12">12</option>
+                        </select>
+                        <div *ngIf="submitted&&f.prepaymentlockingperiod.errors" class="invalid-feedback">
+                            <div>prepayment locking period is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Document Name</label>
+                        <select class="form-control" formControlName="documentname"
+                            [ngClass]="{ 'is-invalid': submitted&&f.documentname.errors}">
+                            <!-- multi select -->
+                            <option value="1">Salary Slip</option>
+                            <option value="2">Bank Statement</option>
+                        </select>
+                        <div *ngIf="submitted&&f.documentname.errors" class="invalid-feedback">
+                            <div>document name is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Minimum Amount</label>
+                        <input type="number" class="form-control" placeholder="Example: 5000"
+                            formControlName="minimumamount"
+                            [ngClass]="{ 'is-invalid': submitted&&f.minimumamount.errors}">
+                        <div *ngIf="submitted&&f.minimumamount.errors" class="invalid-feedback">
+                            <div *ngIf="f.minimumamount.errors.required">minimum amount is required</div>
+                            <div *ngIf="f.minimumamount.errors.pattern">minimum amount must be a valid</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Maximum Amount</label>
+                        <input type="number" class="form-control" placeholder="Example: 500000"
+                            formControlName="maximumamount"
+                            [ngClass]="{ 'is-invalid': submitted&&f.maximumamount.errors}">
+                        <div *ngIf="submitted&&f.maximumamount.errors" class="invalid-feedback">
+                            <div *ngIf="f.maximumamount.errors.required">maximum amount is required</div>
+                            <div *ngIf="f.maximumamount.errors.pattern">maximum amount must be a valid</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Minimum Interest Rate (%)</label>
+                        <input type="number" class="form-control" placeholder="Example: 2"
+                            formControlName="minimuminterestrate"
+                            [ngClass]="{ 'is-invalid': submitted&&f.minimuminterestrate.errors}">
+                        <div *ngIf="submitted&&f.minimuminterestrate.errors" class="invalid-feedback">
+                            <div *ngIf="f.minimuminterestrate.errors.required">minimum interest rate is required</div>
+                            <div *ngIf="f.minimuminterestrate.errors.pattern">minimum interest rate must be a valid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Maximum Interest Rate (%)</label>
+                        <input type="number" class="form-control" placeholder="Example: 5"
+                            formControlName="maximuminterestrate"
+                            [ngClass]="{ 'is-invalid': submitted&&f.maximuminterestrate.errors}">
+                        <div *ngIf="submitted&&f.maximuminterestrate.errors" class="invalid-feedback">
+                            <div *ngIf="f.maximuminterestrate.errors.required">maximum interest is required</div>
+                            <div *ngIf="f.maximuminterestrate.errors.pattern">maximum interest must be a valid</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5 class="card-title">Arrear Settings</h5>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Arrear Tolerance Days</label>
+                        <input type="number" class="form-control" placeholder="Example: 10"
+                            formControlName="arrear_tolerance_days"
+                            [ngClass]="{ 'is-invalid': submitted&&f.arrear_tolerance_days.errors}">
+                        <div *ngIf="submitted&&f.arrear_tolerance_days.errors" class="invalid-feedback">
+                            <div *ngIf="f.arrear_tolerance_days.errors.required">arrear tolerance days is required</div>
+                            <div *ngIf="f.arrear_tolerance_days.errors.pattern">arrear tolerance days must be a valid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="required label">Nonworking Days Tolerance Period</label>
+                        <select class="form-control" formControlName="nonworking_days_tolerance_period"
+                            [ngClass]="{ 'is-invalid': submitted&&f.nonworking_days_tolerance_period.errors}">
+                            <!-- <option value="" selected disabled hidden>Choose Tolerance Option</option> -->
+                            <option value="1">Include</option>
+                            <option value="2">Exclude</option>
+                        </select>
+                        <div *ngIf="submitted&&f.nonworking_days_tolerance_period.errors" class="invalid-feedback">
+                            <div>nonworking days tolerance period is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="required label">Non Performing Assets (NPA) Days</label>
+                        <input type="number" class="form-control" placeholder="Example: 30" formControlName="NPADays"
+                            [ngClass]="{ 'is-invalid': submitted&&f.NPADays.errors}">
+                        <div *ngIf="submitted&&f.NPADays.errors" class="invalid-feedback">
+                            <div *ngIf="f.NPADays.errors.required">NPA Days is required</div>
+                            <div *ngIf="f.NPADays.errors.pattern">NPA Days must be a valid</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5 class="card-title">Conditions <span *ngIf="countCondition<3" (click)="onCondition()"> <i
+                        class="fa fa-plus-circle" aria-hidden="true"></i></span></h5>
+            <div class="condition-forms" formArrayName="conditionForms">
+                <div class="form-group"
+                    *ngFor="let item of loanCreationForm.controls.conditionForms['controls'];let i=index"
+                    [formGroupName]=i>
+                    <h6>Condition {{i+1}}<span (click)="deleteForm(i)"> <i class="fa fa-minus-circle"
+                                aria-hidden="true"></i></span></h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="label">Condition Name{{i+1}}</label>
+                            <input type="text" class="form-control" formControlName="conditionname">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="label">Condition Value{{i+1}}</label>
+                            <input type="number" class="form-control" formControlName="conditionvalue">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="label">Condition Type{{i+1}}</label>
+                            <select class="form-control" formControlName="conditiontype">
+                                <option value="1">String</option>
+                                <option value="2">Integer</option>
+                                <option value="3">Interest</option>
+                                <option value="4">Currency</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="buttons mt-4">
+                <button nbButton class=" appearance-hero status-success" (click)="onSubmit()">Submit</button>
+                <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+                <button nbButton class="ml-3 appearance-hero status-primary" (click)="viewLoan()">
+                    Back
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

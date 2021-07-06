@@ -1,0 +1,115 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<nb-card>
+  <nb-card-header>
+    <h6>Branch Edit <button type="button" class="close" aria-label="Close" (click)="branchview()">
+        <span aria-hidden="true">&times;</span>
+      </button></h6>
+  </nb-card-header>
+  <nb-card-body>
+
+    <form [formGroup]="branchEditForm" *ngFor="let branchdata of BrachData">
+      <!-- <div formControlName="BranchRegister"> -->
+
+      <div class="row">
+        <div class="col">
+          <Span class="required label">Bank ID : <span>{{ branchdata.bank_id }} </span></Span>
+
+        </div>
+        <div class="col">
+          <Span class="required label">Branch Name : <span>{{ branchdata.branch_name }} </span></Span>
+
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Address-Line1</label>
+
+          <textarea cols="3" rows="3" name="" id="" class="form-control" name="address1" formControlName="address1"
+            [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" ngModel="{{ branchdata.address1 }}"
+            [ngModelOptions]="{standalone: true}"></textarea>
+          <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
+            <div *ngIf="f.address1.errors.required">Primary Address is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Address-Line2</label>
+          <textarea cols="3" rows="3" name="" id="" class="form-control" name="address2" formControlName="address2"
+            [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" ngModel="{{ branchdata.address2 }}"
+            [ngModelOptions]="{standalone: true}"></textarea>
+          <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
+            <div *ngIf="f.address2.errors.required">Secondary Address is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">City</label>
+          <input type="text" class="form-control" name="city" formControlName="city"
+            [ngClass]="{ 'is-invalid': submitted && f.city.errors }" ngModel="{{ branchdata.city }}"
+            [ngModelOptions]="{standalone: true}">
+          <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+            <div *ngIf="f.city.errors.required">City is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">State</label>
+          <input type="text" class="form-control" name="state" formControlName="state"
+            [ngClass]="{ 'is-invalid': submitted && f.state.errors }" ngModel="{{ branchdata.state }}"
+            [ngModelOptions]="{standalone: true}">
+          <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+            <div *ngIf="f.state.errors.required">State is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Country</label>
+          <input type="text" class="form-control" name="country" formControlName="country"
+            [ngClass]="{ 'is-invalid': submitted && f.country.errors }" ngModel="{{ branchdata.country }}"
+            [ngModelOptions]="{standalone: true}">
+          <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+            <div *ngIf="f.country.errors.required">Country is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Mobile No1</label>
+          <input type="text" class="form-control" name="phoneno1" formControlName="phoneno1"
+            [ngClass]="{ 'is-invalid': submitted && f.phoneno1.errors }" ngModel="{{ branchdata.phone_no1 }}"
+            [ngModelOptions]="{standalone: true}">
+          <div *ngIf="submitted && f.phoneno1.errors" class="invalid-feedback">
+            <div *ngIf="f.phoneno1.errors.required">Phone No-1 is required</div>
+            <div *ngIf="f.phoneno1.errors.pattern">Phone No-1 must be a valid</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Mobile No2</label>
+          <input type="text" class="form-control" name="phoneno2" formControlName="phoneno2"
+            [ngClass]="{ 'is-invalid': submitted && f.phoneno2.errors }" ngModel="{{ branchdata.phone_no2 }}"
+            [ngModelOptions]="{standalone: true}">
+          <div *ngIf="submitted && f.phoneno2.errors" class="invalid-feedback">
+            <div *ngIf="f.phoneno2.errors.required">Phone No-2 is required</div>
+            <div *ngIf="f.phoneno2.errors.pattern">Phone No-2 must be a valid</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col mt-4">
+
+        <button nbButton class="float-right ml-3 status-primary" (click)="branchview()">Back</button>
+        <button nbButton class="float-right ml-3 status-danger" (click)="onReset()">Reset</button>
+        <button nbButton class="float-right appearance-hero status-success" (click)="onSubmit()">Update</button>
+
+      </div>
+    </form>
+  </nb-card-body>
+
+</nb-card>

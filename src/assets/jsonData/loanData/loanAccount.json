@@ -1,0 +1,47 @@
+[
+
+    {
+        "id":1,
+        "loanproduct":"New Product",
+        "interesttype":"Recurring",
+        "interestmethod":"New method",
+        "tenure":30,
+        "loan_amount":20,
+        "interest_rate":10,
+        "loanproductid":"ID 1",
+        "bank_cus":"New customer",
+        "bankaccno":"sdfsg2",
+        "bankname":"Indian",
+        "bankifsc":"SDB244322",
+        "installment":"Old Installment",
+        "repaymentmode":"New mode",
+        "loan_repayment_period":20,
+        "billingcycle":12,
+        "userDate":"2020/11/25",
+        "documentName":"New_document.pdf"
+     },
+
+    {
+        "id":12,
+        "loanproduct":"New Product",
+        "interesttype":"Recurring",
+        "interestmethod":"New method",
+        "tenure":30,
+        "loan_amount":20,
+        "interest_rate":10,
+        "loanproductid":"ID 1",
+        "bank_cus":"New customer",
+        "bankaccno":"sdfsg2",
+        "bankname":"Indian",
+        "bankifsc":"SDB244322",
+        "installment":"Old Installment",
+        "repaymentmode":"New mode",
+        "loan_repayment_period":20,
+        "billingcycle":12,
+        "userDate":"2020/11/25",
+        "documentName":"New_document.pdf"
+     }
+
+     
+]
+

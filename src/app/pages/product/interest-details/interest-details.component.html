@@ -1,0 +1,96 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <form [formGroup]="interesetdetails">
+      <h6>Interest Details</h6>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Branch Name</label>
+          <select class="form-control" id="branchname" formControlName="branchname" placeholder="select Branch Name" [(ngModel)]="seletedValue" 
+          [ngClass]="{ 'is-invalid': submitted&&f.branchname.errors}">
+          <option value="" disabled>Select Branch</option>       
+          <option *ngFor="let option of branchnamelist[0]" value="{{option['branch_name']}}">{{option.branch_name}}</option>                                                        
+          </select>
+          <div *ngIf="submitted && f.branchname.errors" class="invalid-feedback">
+            <div *ngIf="f.branchname.errors.required">Branch Name is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Product Name</label>
+            <select class="form-control" id="productname" formControlName="productname" placeholder="select product Name"  
+            [ngClass]="{ 'is-invalid': submitted&&f.productname.errors}">          
+            <option value="Saving Account" >Saving Account</option>
+            <option value="Current Account">Current Account</option>            
+        </select>
+          <div *ngIf="submitted && f.productname.errors" class="invalid-feedback">
+            <div *ngIf="f.productname.errors.required">Product Name is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Interest Name</label>
+          <input type="text" class="form-control" name="interestname" formControlName="interestname"
+            [ngClass]="{ 'is-invalid': submitted && f.interestname.errors }">
+          <div *ngIf="submitted && f.interestname.errors" class="invalid-feedback">
+            <div *ngIf="f.interestname.errors.required">Interest Name is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Interest rate</label>
+          <input type="number" class="form-control" name="interestrate" formControlName="interestrate"
+            [ngClass]="{ 'is-invalid': submitted && f.interestrate.errors }">
+          <div *ngIf="submitted && f.interestrate.errors" class="invalid-feedback">
+            <div *ngIf="f.interestrate.errors.required">Interest rate is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Interest Precentage</label>
+          <input type="number" class="form-control" name="interestpercentage" formControlName="interestpercentage"
+            [ngClass]="{ 'is-invalid': submitted && f.interestpercentage.errors }">
+          <div *ngIf="submitted && f.interestpercentage.errors" class="invalid-feedback">
+            <div *ngIf="f.interestpercentage.errors.required">Interest Precentage is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Interest Condition</label>
+          <input type="text" class="form-control" name="interestcondition" formControlName="interestcondition"
+            [ngClass]="{ 'is-invalid': submitted && f.interestcondition.errors }">
+          <div *ngIf="submitted && f.interestcondition.errors" class="invalid-feedback">
+            <div *ngIf="f.interestcondition.errors.required">Interest Condition is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label class="required label">Interest Condition Based</label>
+          <input type="text" class="form-control" name="interestconditionbasedontenureperiod" formControlName="interestconditionbasedontenureperiod"
+            [ngClass]="{ 'is-invalid': submitted && f.interestconditionbasedontenureperiod.errors }">
+          <div *ngIf="submitted && f.interestconditionbasedontenureperiod.errors" class="invalid-feedback">
+            <div *ngIf="f.interestconditionbasedontenureperiod.errors.required"> Description is required</div>
+          </div>
+        </div>
+        <div class="col">
+          <label class="required label">Interest Description</label>
+          <input type="text" class="form-control" name="interestdescription" formControlName="interestdescription"
+            [ngClass]="{ 'is-invalid': submitted && f.interestdescription.errors }">
+          <div *ngIf="submitted && f.interestdescription.errors" class="invalid-feedback">
+            <div *ngIf="f.interestdescription.errors.required">Interest Description is required</div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <button nbButton class="float-right ml-3 appearance-hero status-primary" (click)="interestview()">
+        Back
+      </button>
+      <button nbButton class="float-right status-danger" (click)="onReset()">Reset</button>
+      <button nbButton class="float-right mr-3 appearance-hero status-success" (click)="onSubmit()">Create</button>
+    </form>
+  </nb-card-body>
+</nb-card>

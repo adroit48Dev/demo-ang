@@ -1,0 +1,18 @@
+<nb-card>
+  <nb-card-header>{{data.message_name}}
+    <i style="cursor: pointer;" class="float-right" (click)="dismiss()">x</i>
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="messageForm">
+      <div class="form-group">
+        <input type="text" nbInput fullWidth placeholder="Subject" formControlName="message_name" name="message_name"
+          ngModel="{{data.message_name}}" required>
+      </div>
+      <div class="form-group">
+        <textarea nbInput placeholder="Message" name="message_details" formControlName="message_details"
+          ngModel="{{data.message_details}}" required></textarea>
+      </div>
+      <button type="submit" nbButton status="success">Send</button>
+    </form>
+  </nb-card-body>
+</nb-card>

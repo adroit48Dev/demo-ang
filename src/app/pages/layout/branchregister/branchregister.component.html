@@ -1,0 +1,193 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<div class="steppers-container row">
+  <nb-card class="col-md-12 col-lg-12 col-xxxl-12">
+    <nb-card-header>
+      <h6>Branch Register <button type="button" class="close" aria-label="Close" (click)="branchview()">
+          <span aria-hidden="true">&times;</span>
+        </button> </h6>
+    </nb-card-header>
+    <nb-card-body>
+      <nb-stepper orientation="horizontal" disableStepNavigation>
+        <nb-step [label]="labelOne">
+          <ng-template #labelOne>Branch Create</ng-template>
+          <form [formGroup]="branchRegisterForm">
+            <!-- <div formControlName="BranchRegister"> -->
+            <div class="row">
+              <div class="col">
+
+                <label class="required label">Bank Name</label>
+                <input type="text" class="form-control" name="bankid" formControlName="bankid"
+                  [ngClass]="{ 'is-invalid': submitted && f.bankid.errors }" ngModel="{{ bank_name }}">
+                <div *ngIf="submitted&&f.bankid.errors" class="invalid-feedback">
+                  <div>Bank Name is required</div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="required label">Branch Name</label>
+                <input type="text" class="form-control" name="branchname" formControlName="branchname"
+                  [ngClass]="{ 'is-invalid': submitted && f.branchname.errors }">
+                <div *ngIf="submitted && f.branchname.errors" class="invalid-feedback">
+                  <div *ngIf="f.branchname.errors.required">Branch Name is required</div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <label class="required label">Address-Line1</label>
+
+                <textarea cols="3" rows="3" name="" id="" class="form-control" name="address1"
+                  formControlName="address1" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }"></textarea>
+                <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
+                  <div *ngIf="f.address1.errors.required">Primary Address is required</div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="required label">Address-Line2</label>
+                <textarea cols="3" rows="3" name="" id="" class="form-control" name="address2"
+                  formControlName="address2" [ngClass]="{ 'is-invalid': submitted && f.address2.errors }"></textarea>
+                <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
+                  <div *ngIf="f.address2.errors.required">Secondary Address is required</div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <label class="required label">City</label>
+                <input type="text" class="form-control" name="city" formControlName="city"
+                  [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                  <div *ngIf="f.city.errors.required">City is required</div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="required label">State</label>
+                <input type="text" class="form-control" name="state" formControlName="state"
+                  [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+                <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                  <div *ngIf="f.state.errors.required">State is required</div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <label class="required label">Country</label>
+                <input type="text" class="form-control" name="country" formControlName="country"
+                  [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                  <div *ngIf="f.country.errors.required">Country is required</div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="required label">Lan-Line No</label>
+                <input type="text" class="form-control" name="phoneno1" formControlName="phoneno1"
+                  [ngClass]="{ 'is-invalid': submitted && f.phoneno1.errors }">
+                <div *ngIf="submitted && f.phoneno1.errors" class="invalid-feedback">
+                  <div *ngIf="f.phoneno1.errors.required">Phone No-1 is required</div>
+                  <div *ngIf="f.phoneno1.errors.pattern">Phone No-2 must be a valid</div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <label class="required label">Mobile No</label>
+                <input type="text" class="form-control" name="phoneno2" formControlName="phoneno2"
+                  [ngClass]="{ 'is-invalid': submitted && f.phoneno2.errors }">
+                <div *ngIf="submitted && f.phoneno2.errors" class="invalid-feedback">
+                  <div *ngIf="f.phoneno2.errors.required">Phone No-2 is required</div>
+                  <div *ngIf="f.phoneno2.errors.pattern">Phone No-2 must be a valid</div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col buttons mt-4">
+              <button class="next-button" nbButton *ngIf="NextBtn" nbStepperNext>next</button>
+              <button nbButton class="appearance-hero status-success" *ngIf="!NextBtn"
+                (click)="onSubmit()">Create</button>
+              <button nbButton class="ml-3 status-danger" (click)="onReset()">Reset</button>
+              <button nbButton class="ml-3 appearance-hero status-primary" (click)="branchview()">
+                Back
+              </button>
+
+
+            </div>
+          </form>
+
+        </nb-step>
+        <nb-step [label]="labelTwo">
+          <ng-template #labelTwo>Branch Details</ng-template>
+          <form [formGroup]="branchDetailsForm">
+            <div class="row">
+              <div class="col">
+                <label class="required label">IFSC Code</label>
+                <input type="text" class="form-control" name="ifsccode" formControlName="ifsccode"
+                  [ngClass]="{ 'is-invalid': submitted && bdSubmit && bd.ifsccode.errors }">
+                <div *ngIf="submitted && bdSubmit && bd.ifsccode.errors" class="invalid-feedback">
+                  <div *ngIf="bd.ifsccode.errors.required">IFSC Code is required</div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="required label">MICR Code</label>
+                <input type="text" class="form-control" name="micrcode" formControlName="micrcode"
+                  [ngClass]="{ 'is-invalid': submitted && bdSubmit && bd.micrcode.errors }">
+                <div *ngIf="bdSubmit && submitted && bd.micrcode.errors" class="invalid-feedback">
+                  <div *ngIf="bd.micrcode.errors.required">MICR Code is required</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label class="required label">Vault ID</label>
+                <input class="form-control" formControlName="vaultid"
+                  [ngClass]="{ 'is-invalid': submitted && bdSubmit && bd.vaultid.errors }">
+                <div *ngIf="bdSubmit && submitted && bd.vaultid.errors" class="invalid-feedback">
+                  <div *ngIf="bd.vaultid.errors.required">Valut ID is required</div>
+
+                </div>
+              </div>
+              <div class="col">
+                <label class="required label">Branch ID</label>
+                <input class="form-control " name="branchid" formControlName="branchid"
+                  [ngClass]="{ 'is-invalid': submitted && bdSubmit && bd.branchid.errors }">
+                <div *ngIf="bdSubmit && submitted && bd.branchid.errors" class="invalid-feedback">
+                  <div *ngIf="bd.branchid.errors.required">Branch ID is required</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label class="required label">Setting ID</label>
+                <input class="form-control " formControlName="settingid"
+                  [ngClass]="{ 'is-invalid': submitted && bdSubmit && bd.settingid.errors }">
+                <div *ngIf="bdSubmit && submitted && bd.settingid.errors" class="invalid-feedback">
+                  <div *ngIf="bd.settingid.errors.required">Setting ID is required</div>
+
+                </div>
+              </div>
+              <div class="col">
+                <label class="required label">Spec ID</label>
+                <input type="text" class="form-control" name="specid" formControlName="specid"
+                  [ngClass]="{ 'is-invalid': submitted && bdSubmit && bd.specid.errors }">
+                <div *ngIf=" bdSubmit && submitted && bd.specid.errors" class="invalid-feedback">
+                  <div *ngIf="bd.specid.errors.required">Spec-ID is required</div>
+                </div>
+              </div>
+            </div>
+
+
+            <button class="float-right appearance-hero status-success" nbButton
+              (click)="onBranchSubmit()">Submit</button>
+          </form>
+        </nb-step>
+      </nb-stepper>
+    </nb-card-body>
+  </nb-card>
+</div>

@@ -1,0 +1,121 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <form>
+      <h5>Salary Slip Form</h5>
+      <br>
+
+      <label>Salary Type</label>
+      <input type="text" class="form-control">
+      <br>
+      <div class="row">
+        <div class="col">
+          <label>ESI</label>
+          <input class="form-control">
+        </div>
+        <div class="col">
+          <label>Provident Fund</label>
+          <input class="form-control">
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <label>Salary Start Date & End Date</label>
+          <input [nbDatepicker]="rangepicker" class="form-control">
+          <nb-rangepicker #rangepicker></nb-rangepicker>
+        </div>
+        <div class="col">
+          <label>Basic Pay</label>
+          <input class="form-control">
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <label>Dearerness Allowance</label>
+          <input class="form-control">
+        </div>
+        <div class="col">
+          <label>House Rent Allowance</label>
+          <input class="form-control">
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <label>City Compensation Allowance</label>
+          <select class="form-control">
+            <option>1</option>
+            <option>2</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Total</label>
+          <input class="form-control">
+        </div>
+        <br>
+      </div>
+      <br>
+
+      <button nbButton class="float-right appearance-hero status-success mb-3" (click)="SalarySlip()">Create</button>
+    </form>
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Deductions</th>
+          <th scope="col">Allowance</th>
+          <th scope="col">HRA</th>
+          <th scope="col">CCA</th>
+          <th scope="col">PPF</th>
+          <th scope="col">Gross Income</th>
+          <th scope="col">NET Income</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>Mark</td>
+          <td>Otto</td>
+
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>Mark</td>
+          <td>Otto</td>
+
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>Mark</td>
+          <td>Otto</td>
+        </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card>

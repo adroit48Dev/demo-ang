@@ -1,0 +1,46 @@
+nb-card .Account-card {
+    background-color: #ffffff;
+    border: 0.0625rem #e0e0e0;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+    color: #424242;
+    padding: 20px;
+}
+nb-card .Account-card:hover {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+nb-card-header {
+    padding: 1rem 2rem;
+    border-bottom: 2px solid #edf1f7;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    color: black;
+    background: #f5f5f5;
+    font-family: Roboto, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2.5rem;
+}
+.accountHeader h5 {
+    display: inline;
+}
+
+.heading {
+    font-size: large;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.subHeading {
+    font-size: medium;
+    margin-bottom: 4px;
+}
+a {
+    cursor: pointer;
+}
+i {
+    color: #670aff;
+    font-size: 17px;
+}

@@ -1,0 +1,27 @@
+[
+   
+
+    {
+        "bankid": "SBI",
+        "branchname": "Chennai",
+        "address1": "Chennai1",
+        "address2":"Chennai2" ,
+        "city": "Chennai",
+        "country": "India",
+        "phoneno1": 12314,
+        "phoneno2": 12345,
+        "state": "TN"
+    },
+    {
+        "bankid": "SBI-IN",
+        "branchname": "Chennai",
+        "address1": "Chennai1",
+        "address2":"Chennai2" ,
+        "city": "Chennai",
+        "country": "India",
+        "phoneno1": 12314,
+        "phoneno2": 12345,
+        "state": "TN",
+         "Minimumb": 1231
+     }
+]

@@ -1,0 +1,28 @@
+<nb-card>
+  <nb-card-header class="accountHeader">
+    <h5>Employees Leave List</h5>
+    <button nbButton (click)="createEmployeeLeave()" class="float-right appearance-hero status-success">Create Employee
+      Leave</button>
+  </nb-card-header>
+  <nb-card-body class="example-items-col mt-4 ">
+    <div class="row">
+      <div class="col-6">
+        <nb-card class="Account-card">
+          <div class="row" *ngFor="let item of EmpLeavePolicyData">
+            <div class="col-5">
+              <div class="heading">Employee Name </div>
+              <div class="subHeading">Leave Name </div>
+              <div class="subHeading">Remaining Leave </div>
+            </div>
+            <div class="col-7">
+              <div class="heading">{{ item.empid }}<a (click)="updateEmployeeLeave(item['_id'])"><i
+                    class="fas fa-edit float-right"></i></a></div>
+              <div class="subHeading">{{ item.leavename }}</div>
+              <div class="subHeading">{{ item.remainingleave }}</div>
+            </div>
+          </div>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
