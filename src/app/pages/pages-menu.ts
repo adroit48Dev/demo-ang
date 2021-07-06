@@ -13,17 +13,21 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'Bank Management ',
+    title: 'Bank Maintenance ',
     icon: 'layout-outline',
     children: [
-      // {
-      //   title: 'Branch Register',
-      //   link: '/pages/layout/branchregister',
-      // },
-      // {
-      //   title: 'Branch List',
-      //   link: '/pages/layout/branchview',
-      // }, 
+
+      {
+        title: 'Global Settings',
+        link: '/pages/layout/branchview',
+      },
+    ],
+  },
+  {
+    title: 'Branch Maintenance ',
+    icon: 'layout-outline',
+    children: [
+
       {
         title: 'Branch View',
         link: '/pages/layout/branchview',
@@ -242,7 +246,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       // {
       //   title: 'Create Fee',
       //   link: '/pages/product/feedetails',
-      // }, 
+      // },
       {
         title: 'Fee Details',
         link: '/pages/product/feedetailsview',
